@@ -12,3 +12,6 @@ pnpm install
 
 echo "==> Installing Playwright…"
 pnpx playwright install
+
+echo "==> Enabling Git hooks with husky…"
+pnpx husky install

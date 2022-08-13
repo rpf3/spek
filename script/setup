@@ -9,3 +9,6 @@ cd "$(dirname "$0")/.."
 
 echo "==> Installing packages…"
 pnpm install
+
+echo "==> Installing Playwright…"
+pnpx playwright install

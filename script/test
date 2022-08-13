@@ -7,3 +7,6 @@ set -e
 cd "$(dirname "$0")/.."
 
 [ -z "$DEBUG" ] || set -x
+
+echo "==> Running tests…"
+pnpm test

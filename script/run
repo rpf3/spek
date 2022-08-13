@@ -7,3 +7,6 @@ set -e
 cd "$(dirname "$0")/.."
 
 script/bootstrap
+
+echo "==> Starting the Vite dev server…"
+pnpm dev

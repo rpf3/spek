@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# script/run: Run the application and any extra processes.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap

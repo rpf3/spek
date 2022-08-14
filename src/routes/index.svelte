@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { Column } from '$lib/types';
 
-	import { createDataRows } from '$lib/utils';
-
 	import Table from '$lib/components/Table.svelte';
 
 	const columns: Column[] = [
@@ -20,7 +18,7 @@
 		}
 	];
 
-	const rawData = [
+	const data = [
 		{
 			name: 'Frodo',
 			email: 'frodo@baggins.com',
@@ -42,8 +40,6 @@
 			age: 27
 		}
 	];
-
-	const data = createDataRows(rawData);
 </script>
 
 <div class="max-w-screen-lg w-1/4 mx-auto my-10">

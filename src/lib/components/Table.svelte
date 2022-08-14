@@ -2,12 +2,16 @@
 	import type { Column } from '$lib/types';
 	import type { DataRow } from '$lib/types';
 
+	import { createDataRows } from '$lib/utils';
+
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
 	import Row from './Row.svelte';
 
 	export let columns: Column[];
-	export let data: DataRow[];
+	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+
+	let rows: DataRow[] = createDataRows(data);
 
 	function handleSortEvent(event: CustomEvent) {
 		return;
@@ -23,7 +27,7 @@
 		</svelte:fragment>
 	</Row>
 
-	{#each data as row}
+	{#each rows as row}
 		<Row>
 			<svelte:fragment>
 				{#each columns as column}

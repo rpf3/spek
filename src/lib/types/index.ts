@@ -1,4 +1,13 @@
 export type Column = {
-	id: string;
-	name: string;
+	key: string;
+	header: string;
+};
+
+export type DataItem = {
+	key: string;
+	value: string;
+};
+
+export type DataRow = {
+	items: DataItem[];
 };

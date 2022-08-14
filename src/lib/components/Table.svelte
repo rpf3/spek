@@ -4,6 +4,7 @@
 
 	import { createDataRows } from '$lib/utils';
 	import { sort } from '$lib/utils/sort';
+	import { SortDirection } from '$lib/types';
 
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
@@ -13,11 +14,33 @@
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 	let rows: DataRow[] = createDataRows(data);
-	let ascending = true;
+
+	let sortKey: string;
+	let sortDirection: SortDirection = SortDirection.None;
+
+	function changeSortDirection() {
+		if (sortDirection === SortDirection.None) {
+			sortDirection = SortDirection.Ascending;
+			return;
+		}
+
+		if (sortDirection === SortDirection.Descending) {
+			sortDirection = SortDirection.Ascending;
+			return;
+		}
+
+		if (sortDirection === SortDirection.Ascending) {
+			sortDirection = SortDirection.Descending;
+			return;
+		}
+	}
 
 	function handleSortEvent(event: CustomEvent) {
-		rows = sort(rows, event.detail, ascending);
-		ascending = !ascending;
+		sortKey = event.detail;
+
+		changeSortDirection();
+
+		rows = sort(rows, sortKey, sortDirection);
 	}
 </script>
 
@@ -25,7 +48,7 @@
 	<Row>
 		<svelte:fragment>
 			{#each columns as column}
-				<HeaderCell {column} on:sort={handleSortEvent} />
+				<HeaderCell {column} {sortKey} {sortDirection} on:sort={handleSortEvent} />
 			{/each}
 		</svelte:fragment>
 	</Row>

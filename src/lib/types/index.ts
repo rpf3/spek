@@ -11,3 +11,9 @@ export type DataItem = {
 export type DataRow = {
 	items: DataItem[];
 };
+
+export enum SortDirection {
+	Ascending,
+	Descending,
+	None
+}

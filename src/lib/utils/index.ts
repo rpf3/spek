@@ -32,4 +32,14 @@ function createDataRows(data: any[]): DataRow[] {
 	return rows;
 }
 
-export { createDataRows };
+function getRowValue(row: DataRow, key: string): string | number | null {
+	const dataItem = row.items.find((item) => item.key === key);
+
+	if (dataItem === undefined) {
+		return null;
+	}
+
+	return dataItem.value;
+}
+
+export { createDataRows, getRowValue };

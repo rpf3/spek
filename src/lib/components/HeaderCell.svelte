@@ -1,34 +1,32 @@
 <script lang="ts">
 	import type { Column } from '$lib/types';
 
-	import { createEventDispatcher } from 'svelte';
 	import { SortDirection } from '$lib/types';
+	import { rows } from '$lib/stores/rows';
+	import { sort } from '$lib/stores/sort';
 
 	import Ascending from './icons/Ascending.svelte';
 	import Cell from './Cell.svelte';
 	import Descending from './icons/Descending.svelte';
 
 	export let column: Column;
-	export let sortKey: string;
-	export let sortDirection: SortDirection = SortDirection.None;
 
-	const dispatch = createEventDispatcher();
-
-	function dispatchSortEvent() {
-		dispatch('sort', column.key);
+	function sortRows() {
+		sort.set(column.key);
+		rows.sort($sort.key, $sort.direction);
 	}
 </script>
 
 <Cell>
-	<div class="flex items-end gap-1 font-semibold cursor-pointer" on:click={dispatchSortEvent}>
+	<div class="flex items-end gap-1 font-semibold cursor-pointer" on:click={sortRows}>
 		<span>{column.header}</span>
 
-		{#if sortKey === column.key}
-			{#if sortDirection === SortDirection.Ascending}
+		{#if $sort.key === column.key}
+			{#if $sort.direction === SortDirection.Ascending}
 				<div>
 					<Ascending />
 				</div>
-			{:else if sortDirection === SortDirection.Descending}
+			{:else if $sort.direction === SortDirection.Descending}
 				<div>
 					<Descending />
 				</div>

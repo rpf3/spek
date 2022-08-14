@@ -6,7 +6,7 @@ function comparator(row1: DataRow, row2: DataRow, key: string): number {
 	const value1 = getRowValue(row1, key) || '';
 	const value2 = getRowValue(row2, key) || '';
 
-	return value1.toString().localeCompare(value2.toString());
+	return value1.localeCompare(value2);
 }
 
 function sort(rows: DataRow[], key: string, ascending: boolean): DataRow[] {

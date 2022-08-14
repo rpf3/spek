@@ -5,7 +5,7 @@ export type Column = {
 
 export type DataItem = {
 	key: string;
-	value: string | number;
+	value: string;
 };
 
 export type DataRow = {

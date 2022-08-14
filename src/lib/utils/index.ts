@@ -1,6 +1,7 @@
 import type { DataItem } from '$lib/types';
 import type { DataRow } from '$lib/types';
 
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 function createDataItems(data: any): DataItem[] {
 	const keys = Object.keys(data);
 
@@ -16,6 +17,7 @@ function createDataItems(data: any): DataItem[] {
 	return items;
 }
 
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 function createDataRows(data: any[]): DataRow[] {
 	const rows = data.map((item) => {
 		const items = createDataItems(item);

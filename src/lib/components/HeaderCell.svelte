@@ -7,5 +7,7 @@
 </script>
 
 <Cell>
-	{column.header}
+	<div class="font-semibold">
+		{column.header}
+	</div>
 </Cell>

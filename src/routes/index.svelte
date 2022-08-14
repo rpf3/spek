@@ -15,6 +15,10 @@
 		{
 			key: 'age',
 			header: 'Age'
+		},
+		{
+			key: 'ring',
+			header: 'Ring Bearer'
 		}
 	];
 
@@ -22,22 +26,26 @@
 		{
 			name: 'Frodo',
 			email: 'frodo@baggins.com',
-			age: 50
+			age: 50,
+			ring: true
 		},
 		{
 			name: 'Samwise',
 			email: 'sam@wise.io',
-			age: 38
+			age: 38,
+			ring: true
 		},
 		{
 			name: 'Merry',
 			email: 'merry@shire.net',
-			age: 36
+			age: 36,
+			ring: false
 		},
 		{
 			name: 'Pippin',
 			email: 'pip@shire.net',
-			age: 27
+			age: 27,
+			ring: false
 		}
 	];
 </script>

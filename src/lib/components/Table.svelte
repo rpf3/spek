@@ -5,6 +5,7 @@
 	import Row from './Row.svelte';
 
 	export let columns: Column[];
+	export let data: any[];
 </script>
 
 <div class="flex flex-col">
@@ -17,4 +18,16 @@
 			{/each}
 		</svelte:fragment>
 	</Row>
+
+	{#each data as item}
+		<Row>
+			<svelte:fragment>
+				{#each columns as column}
+					<Cell>
+						{item[column.id]}
+					</Cell>
+				{/each}
+			</svelte:fragment>
+		</Row>
+	{/each}
 </div>

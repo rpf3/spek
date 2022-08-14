@@ -8,7 +8,7 @@
 	export let data: any[];
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col gap-1">
 	<Row>
 		<svelte:fragment>
 			{#each columns as column}

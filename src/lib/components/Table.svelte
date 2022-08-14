@@ -1,10 +1,8 @@
 <script lang="ts">
 	import type { Column } from '$lib/types';
-	import type { DataRow } from '$lib/types';
 
-	import { createDataRows } from '$lib/utils';
-	import { sort } from '$lib/utils/sort';
 	import { SortDirection } from '$lib/types';
+	import { rows } from '$lib/stores/rows';
 
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
@@ -13,7 +11,7 @@
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
-	let rows: DataRow[] = createDataRows(data);
+	rows.set(data);
 
 	let sortKey: string;
 	let sortDirection: SortDirection = SortDirection.None;
@@ -40,7 +38,7 @@
 
 		changeSortDirection();
 
-		rows = sort(rows, sortKey, sortDirection);
+		rows.sort(sortKey, sortDirection);
 	}
 </script>
 
@@ -53,7 +51,7 @@
 		</svelte:fragment>
 	</Row>
 
-	{#each rows as row}
+	{#each $rows as row}
 		<Row>
 			<svelte:fragment>
 				{#each columns as column}

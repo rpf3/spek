@@ -11,7 +11,7 @@
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
-	rows.set(data);
+	rows.init(data);
 
 	let sortKey: string;
 	let sortDirection: SortDirection = SortDirection.None;

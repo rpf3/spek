@@ -2,8 +2,8 @@ import type { DataRow } from '$lib/types';
 import type { Writable } from 'svelte/store';
 
 import { writable } from 'svelte/store';
-import { createDataRows } from '$lib/utils';
 import { getRowValue } from '$lib/utils';
+import { createDataRows } from '$lib/utils/data';
 import { SortDirection } from '$lib/types';
 
 function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
@@ -27,22 +27,22 @@ function sortRows(rows: DataRow[], key: string, direction: SortDirection): DataR
 
 function create() {
 	const store: Writable<DataRow[]> = writable();
-	const { subscribe, update, set: _set } = store;
+	const { subscribe, update, set: set } = store;
 
 	function sort(key: string, direction: SortDirection) {
 		update((rows) => sortRows(rows, key, direction));
 	}
 
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-	function set(data: any[]) {
+	function init(data: any[]) {
 		const rows = createDataRows(data);
 
-		_set(rows);
+		set(rows);
 	}
 
 	return {
 		subscribe,
-		set,
+		init,
 		sort
 	};
 }

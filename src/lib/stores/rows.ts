@@ -33,6 +33,10 @@ function create() {
 		update((rows) => sortRows(rows, key, direction));
 	}
 
+	function filter(key: string, value: string) {
+		console.log(`filtering ${key} for ${value}`);
+	}
+
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	function init(data: any[]) {
 		const rows = createDataRows(data);
@@ -43,7 +47,8 @@ function create() {
 	return {
 		subscribe,
 		init,
-		sort
+		sort,
+		filter
 	};
 }
 

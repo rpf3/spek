@@ -25,6 +25,16 @@ function sortRows(rows: DataRow[], key: string, direction: SortDirection): DataR
 	return rows;
 }
 
+function filterRows(rows: DataRow[], key: string, value: string): DataRow[] {
+	const result = rows.filter((row) => {
+		const dataItemValue = getRowValue(row, key) || '';
+
+		return dataItemValue.includes(value);
+	});
+
+	return result;
+}
+
 function create() {
 	const store: Writable<DataRow[]> = writable();
 	const { subscribe, update, set: set } = store;
@@ -34,7 +44,7 @@ function create() {
 	}
 
 	function filter(key: string, value: string) {
-		console.log(`filtering ${key} for ${value}`);
+		update((rows) => filterRows(rows, key, value));
 	}
 
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */

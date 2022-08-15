@@ -11,9 +11,17 @@
 
 	export let column: Column;
 
+	let filter: string;
+
 	function sortRows() {
 		sort.set(column.key);
 		rows.sort($sort.key, $sort.direction);
+	}
+
+	function filterRows(event: KeyboardEvent) {
+		if (event.key === 'Enter') {
+			rows.filter(column.key, filter);
+		}
 	}
 </script>
 
@@ -33,4 +41,6 @@
 			{/if}
 		{/if}
 	</div>
+
+	<input type="text" class="border rounded" bind:value={filter} on:keyup={filterRows} />
 </Cell>

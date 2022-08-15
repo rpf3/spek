@@ -44,7 +44,7 @@ function create() {
 		update((dataset) => {
 			return {
 				_rows: dataset._rows,
-				rows: sortRows(dataset._rows, key, direction)
+				rows: sortRows(dataset.rows, key, direction)
 			};
 		});
 	}

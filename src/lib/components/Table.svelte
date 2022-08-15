@@ -22,7 +22,7 @@
 		</svelte:fragment>
 	</Row>
 
-	{#each $rows as row}
+	{#each $rows.rows as row}
 		<Row>
 			<svelte:fragment>
 				{#each columns as column}

@@ -12,6 +12,11 @@ export type DataRow = {
 	items: DataItem[];
 };
 
+export type DataSet = {
+	_rows: DataRow[];
+	rows: DataRow[];
+};
+
 export enum SortDirection {
 	Ascending,
 	Descending,

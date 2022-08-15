@@ -1,4 +1,5 @@
 import type { DataRow } from '$lib/types';
+import type { DataSet } from '$lib/types';
 import type { Writable } from 'svelte/store';
 
 import { writable } from 'svelte/store';
@@ -36,22 +37,35 @@ function filterRows(rows: DataRow[], key: string, value: string): DataRow[] {
 }
 
 function create() {
-	const store: Writable<DataRow[]> = writable();
+	const store: Writable<DataSet> = writable();
 	const { subscribe, update, set: set } = store;
 
 	function sort(key: string, direction: SortDirection) {
-		update((rows) => sortRows(rows, key, direction));
+		update((dataset) => {
+			return {
+				_rows: dataset._rows,
+				rows: sortRows(dataset._rows, key, direction)
+			};
+		});
 	}
 
 	function filter(key: string, value: string) {
-		update((rows) => filterRows(rows, key, value));
+		update((dataset) => {
+			return {
+				_rows: dataset._rows,
+				rows: filterRows(dataset._rows, key, value)
+			};
+		});
 	}
 
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	function init(data: any[]) {
 		const rows = createDataRows(data);
 
-		set(rows);
+		set({
+			_rows: rows,
+			rows: rows
+		});
 	}
 
 	return {

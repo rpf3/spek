@@ -2,7 +2,7 @@
 	import type { Column } from '$lib/types';
 
 	import { SortDirection } from '$lib/types';
-	import { rows } from '$lib/stores/rows';
+	import { repository } from '$lib/stores/repository';
 	import { sort } from '$lib/stores/sort';
 
 	import Ascending from './icons/Ascending.svelte';
@@ -15,12 +15,12 @@
 
 	function sortRows() {
 		sort.set(column.key);
-		rows.sort($sort.key, $sort.direction);
+		repository.sort($sort.key, $sort.direction);
 	}
 
 	function filterRows(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
-			rows.filter(column.key, filter);
+			repository.filter(column.key, filter);
 		}
 	}
 </script>

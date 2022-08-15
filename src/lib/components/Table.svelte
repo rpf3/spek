@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/types';
 
-	import { rows } from '$lib/stores/rows';
+	import { repository } from '$lib/stores/repository';
 
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
@@ -10,7 +10,7 @@
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
-	rows.init(data);
+	repository.init(data);
 </script>
 
 <div class="flex flex-col gap-1 divide-y divid-solid p-2">
@@ -22,7 +22,7 @@
 		</svelte:fragment>
 	</Row>
 
-	{#each $rows.rows as row}
+	{#each $repository.rows as row}
 		<Row>
 			<svelte:fragment>
 				{#each columns as column}

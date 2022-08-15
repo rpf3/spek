@@ -76,4 +76,4 @@ function create() {
 	};
 }
 
-export const rows = create();
+export const repository = create();

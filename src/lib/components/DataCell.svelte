@@ -11,5 +11,5 @@
 </script>
 
 <Cell>
-	{getRowValue(row, column.key)}
+	<span class="overflow-hidden">{getRowValue(row, column.key)}</span>
 </Cell>

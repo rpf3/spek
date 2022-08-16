@@ -47,7 +47,7 @@
 			</button>
 
 			<div
-				class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white"
+				class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white cursor-default"
 				class:hidden={filterHidden}
 				on:click|stopPropagation
 			>

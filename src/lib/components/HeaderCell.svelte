@@ -29,7 +29,13 @@
 	function toggleFilter() {
 		filterHidden = !filterHidden;
 	}
+
+	function hideFilter() {
+		filterHidden = true;
+	}
 </script>
+
+<svelte:window on:click={hideFilter} />
 
 <Cell>
 	<div class="flex items-end gap-1 font-semibold cursor-pointer">
@@ -43,6 +49,7 @@
 			<div
 				class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white"
 				class:hidden={filterHidden}
+				on:click|stopPropagation
 			>
 				<input
 					type="text"

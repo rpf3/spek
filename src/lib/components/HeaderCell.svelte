@@ -80,7 +80,7 @@
 			</div>
 		</div>
 
-		{#if $sort.key === column.key}
+		{#if $sort?.key === column.key}
 			{#if $sort.direction === SortDirection.Ascending}
 				<div>
 					<Ascending />

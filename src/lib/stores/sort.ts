@@ -13,16 +13,13 @@ function changeSortDirection(current: SortDirection) {
 }
 
 function create() {
-	const store: Writable<SortState> = writable({
-		key: '',
-		direction: SortDirection.None
-	});
+	const store: Writable<SortState> = writable();
 
 	const { subscribe } = store;
 
 	function set(key: string) {
 		store.update((value) => {
-			if (value.key === key) {
+			if (value?.key === key) {
 				return {
 					key: key,
 					direction: changeSortDirection(value.direction)

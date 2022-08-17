@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/types';
 
+	import { dataset } from '$lib/stores/dataset';
 	import { repository } from '$lib/stores/repository';
 
 	import DataCell from './DataCell.svelte';
@@ -10,7 +11,7 @@
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
-	repository.init(data);
+	dataset.init(data);
 </script>
 
 <div class="flex flex-col gap-1 divide-y divid-solid p-2">

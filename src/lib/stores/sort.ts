@@ -1,3 +1,6 @@
+import type { SortState } from '$lib/types';
+import type { Writable } from 'svelte/store';
+
 import { SortDirection } from '$lib/types';
 import { writable } from 'svelte/store';
 
@@ -10,7 +13,7 @@ function changeSortDirection(current: SortDirection) {
 }
 
 function create() {
-	const store = writable({
+	const store: Writable<SortState> = writable({
 		key: '',
 		direction: SortDirection.None
 	});

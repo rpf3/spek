@@ -4,6 +4,7 @@
 	import { SortDirection } from '$lib/types';
 	import { filter } from '$lib/stores/filter';
 	import { sort } from '$lib/stores/sort';
+	import { onDestroy } from 'svelte';
 
 	import Ascending from './icons/Ascending.svelte';
 	import Cell from './Cell.svelte';
@@ -35,6 +36,18 @@
 	function hideFilter() {
 		isFilterHidden = true;
 	}
+
+	const unsubscribe = filter.subscribe((state) => {
+		if (!state) {
+			return;
+		}
+
+		if (state.key !== column.key) {
+			filterValue = '';
+		}
+	});
+
+	onDestroy(unsubscribe);
 </script>
 
 <svelte:window on:click={hideFilter} />

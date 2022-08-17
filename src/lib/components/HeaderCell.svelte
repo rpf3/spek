@@ -15,6 +15,7 @@
 
 	let filterValue: string;
 	let isFilterHidden = true;
+	let filterWrapper: HTMLElement;
 
 	function sortRows() {
 		sort.set(column.key);
@@ -33,8 +34,12 @@
 		isFilterHidden = !isFilterHidden;
 	}
 
-	function hideFilter() {
-		isFilterHidden = true;
+	function hideFilter(event: Event) {
+		const target = event.target as HTMLElement;
+
+		if (!filterWrapper.contains(target)) {
+			isFilterHidden = true;
+		}
 	}
 
 	const unsubscribe = filter.subscribe((state) => {
@@ -56,8 +61,8 @@
 	<div class="flex items-end gap-1 font-semibold cursor-pointer">
 		<span class="overflow-hidden" on:click={sortRows}>{column.header}</span>
 
-		<div class="relative flex">
-			<button class="text-slate-200" on:click|stopPropagation={toggleFilter}>
+		<div class="relative flex" bind:this={filterWrapper}>
+			<button class="text-slate-200" on:click={toggleFilter}>
 				<Filter />
 			</button>
 

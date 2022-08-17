@@ -2,7 +2,7 @@
 	import type { Column } from '$lib/types';
 
 	import { SortDirection } from '$lib/types';
-	import { repository } from '$lib/stores/repository';
+	import { filter } from '$lib/stores/filter';
 	import { sort } from '$lib/stores/sort';
 
 	import Ascending from './icons/Ascending.svelte';
@@ -12,26 +12,28 @@
 
 	export let column: Column;
 
-	let filter: string;
-	let filterHidden = true;
+	let filterValue: string;
+	let isFilterHidden = true;
 
 	function sortRows() {
 		sort.set(column.key);
-		repository.sort($sort.key, $sort.direction);
 	}
 
 	function filterRows(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
-			repository.filter(column.key, filter);
+			filter.set({
+				key: column.key,
+				value: filterValue
+			});
 		}
 	}
 
 	function toggleFilter() {
-		filterHidden = !filterHidden;
+		isFilterHidden = !isFilterHidden;
 	}
 
 	function hideFilter() {
-		filterHidden = true;
+		isFilterHidden = true;
 	}
 </script>
 
@@ -48,13 +50,13 @@
 
 			<div
 				class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white cursor-default"
-				class:hidden={filterHidden}
+				class:hidden={isFilterHidden}
 				on:click|stopPropagation
 			>
 				<input
 					type="text"
 					class="border border-slate-200 rounded px-2 py-1"
-					bind:value={filter}
+					bind:value={filterValue}
 					on:keyup={filterRows}
 				/>
 			</div>

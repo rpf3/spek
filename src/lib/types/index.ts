@@ -13,7 +13,6 @@ export type DataRow = {
 };
 
 export type DataSet = {
-	_rows: DataRow[];
 	rows: DataRow[];
 };
 
@@ -22,3 +21,13 @@ export enum SortDirection {
 	Descending,
 	None
 }
+
+export type SortState = {
+	key: string;
+	direction: SortDirection;
+};
+
+export type FilterState = {
+	key: string;
+	value: string;
+};

@@ -2,20 +2,13 @@
 	import type { Column } from '$lib/types';
 
 	import { SortDirection } from '$lib/types';
-	import { filter } from '$lib/stores/filter';
 	import { sort } from '$lib/stores/sort';
-	import { onDestroy } from 'svelte';
 
 	import Ascending from './icons/Ascending.svelte';
 	import Cell from './Cell.svelte';
 	import Descending from './icons/Descending.svelte';
-	import Filter from './icons/Filter.svelte';
 
 	export let column: Column;
-
-	let filterValue: string;
-	let isFilterHidden = true;
-	let filterWrapper: HTMLElement;
 
 	function sortRows() {
 		if (!column.sortable) {
@@ -24,67 +17,11 @@
 
 		sort.set(column.key);
 	}
-
-	function filterRows(event: KeyboardEvent) {
-		if (event.key === 'Enter') {
-			filter.set({
-				key: column.key,
-				value: filterValue
-			});
-		}
-	}
-
-	function toggleFilter() {
-		isFilterHidden = !isFilterHidden;
-	}
-
-	function hideFilter(event: Event) {
-		const target = event.target as HTMLElement;
-
-		if (!filterWrapper.contains(target)) {
-			isFilterHidden = true;
-		}
-	}
-
-	const unsubscribe = filter.subscribe((state) => {
-		if (!state) {
-			return;
-		}
-
-		if (state.key !== column.key) {
-			filterValue = '';
-		}
-	});
-
-	onDestroy(unsubscribe);
 </script>
-
-<svelte:window on:click={hideFilter} />
 
 <Cell>
 	<div class="flex items-end gap-1 font-semibold" class:cursor-pointer={column.sortable}>
 		<span class="overflow-hidden" on:click={sortRows}>{column.header}</span>
-
-		{#if column.filterable}
-			<div class="relative flex" bind:this={filterWrapper}>
-				<button class="text-slate-200" on:click={toggleFilter}>
-					<Filter />
-				</button>
-
-				<div
-					class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white cursor-default drop-shadow"
-					class:hidden={isFilterHidden}
-					on:click|stopPropagation
-				>
-					<input
-						type="text"
-						class="border border-slate-200 rounded px-2 py-1"
-						bind:value={filterValue}
-						on:keyup={filterRows}
-					/>
-				</div>
-			</div>
-		{/if}
 
 		{#if $sort?.key === column.key}
 			{#if $sort.direction === SortDirection.Ascending}

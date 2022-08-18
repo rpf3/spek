@@ -18,6 +18,10 @@
 	let filterWrapper: HTMLElement;
 
 	function sortRows() {
+		if (!column.sortable) {
+			return;
+		}
+
 		sort.set(column.key);
 	}
 
@@ -58,7 +62,7 @@
 <svelte:window on:click={hideFilter} />
 
 <Cell>
-	<div class="flex items-end gap-1 font-semibold cursor-pointer">
+	<div class="flex items-end gap-1 font-semibold" class:cursor-pointer={column.sortable}>
 		<span class="overflow-hidden" on:click={sortRows}>{column.header}</span>
 
 		{#if column.filterable}

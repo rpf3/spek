@@ -1,6 +1,7 @@
 export type Column = {
 	key: string;
 	header: string;
+	filterable?: boolean;
 };
 
 export type DataItem = {

@@ -61,24 +61,26 @@
 	<div class="flex items-end gap-1 font-semibold cursor-pointer">
 		<span class="overflow-hidden" on:click={sortRows}>{column.header}</span>
 
-		<div class="relative flex" bind:this={filterWrapper}>
-			<button class="text-slate-200" on:click={toggleFilter}>
-				<Filter />
-			</button>
+		{#if column.filterable}
+			<div class="relative flex" bind:this={filterWrapper}>
+				<button class="text-slate-200" on:click={toggleFilter}>
+					<Filter />
+				</button>
 
-			<div
-				class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white cursor-default drop-shadow"
-				class:hidden={isFilterHidden}
-				on:click|stopPropagation
-			>
-				<input
-					type="text"
-					class="border border-slate-200 rounded px-2 py-1"
-					bind:value={filterValue}
-					on:keyup={filterRows}
-				/>
+				<div
+					class="absolute left-0 top-full p-5 border border-slate-200 rounded bg-white cursor-default drop-shadow"
+					class:hidden={isFilterHidden}
+					on:click|stopPropagation
+				>
+					<input
+						type="text"
+						class="border border-slate-200 rounded px-2 py-1"
+						bind:value={filterValue}
+						on:keyup={filterRows}
+					/>
+				</div>
 			</div>
-		</div>
+		{/if}
 
 		{#if $sort?.key === column.key}
 			{#if $sort.direction === SortDirection.Ascending}

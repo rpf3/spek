@@ -1,0 +1,65 @@
+<script lang="ts">
+	import type { Column } from '$lib/types';
+
+	import { filter } from '$lib/stores/filter';
+
+	import Filter from './icons/Filter.svelte';
+	import Modal from './Modal.svelte';
+	import PrimaryButton from './PrimaryButton.svelte';
+	import SecondaryButton from './SecondaryButton.svelte';
+
+	export let columns: Column[];
+
+	let isModalVisible = false;
+
+	let selectedFilterKey: string;
+	let selectedFilterValue: string;
+
+	function openFilterModal() {
+		isModalVisible = true;
+	}
+
+	function closeFilterModal() {
+		isModalVisible = false;
+	}
+
+	function applyFilter() {
+		filter.set({
+			key: selectedFilterKey,
+			value: selectedFilterValue
+		});
+
+		closeFilterModal();
+	}
+</script>
+
+<div class="flex flex-row-reverse">
+	<button on:click={openFilterModal}>
+		<Filter />
+	</button>
+</div>
+
+{#if isModalVisible}
+	<Modal on:close={closeFilterModal}>
+		<p slot="header">Filter</p>
+
+		<div slot="body" class="grid grid-cols-2 gap-5">
+			<select bind:value={selectedFilterKey}>
+				{#each columns as column}
+					<option value={column.key}>{column.header}</option>
+				{/each}
+			</select>
+
+			<input
+				type="text"
+				class="border border-slate-200 rounded px-2 py-1"
+				bind:value={selectedFilterValue}
+			/>
+		</div>
+
+		<div slot="footer" class="flex flex-row gap-3">
+			<SecondaryButton on:click={closeFilterModal}>Cancel</SecondaryButton>
+			<PrimaryButton on:click={applyFilter}>Apply</PrimaryButton>
+		</div>
+	</Modal>
+{/if}

@@ -33,7 +33,7 @@ function sortRows(rows: DataRow[], state: SortState): DataRow[] {
 	return rows;
 }
 
-function filterRows(rows: DataRow[], state: FilterState): DataRow[] {
+function filterRows(rows: DataRow[], state: FilterState | null): DataRow[] {
 	if (state === undefined || state === null) {
 		return rows;
 	}
@@ -47,7 +47,11 @@ function filterRows(rows: DataRow[], state: FilterState): DataRow[] {
 	return result;
 }
 
-function transform(originalDataSet: DataSet, sortState: SortState, filterState: FilterState) {
+function transform(
+	originalDataSet: DataSet,
+	sortState: SortState,
+	filterState: FilterState | null
+) {
 	const filtered = filterRows(originalDataSet.rows, filterState);
 	const sorted = sortRows(filtered, sortState);
 

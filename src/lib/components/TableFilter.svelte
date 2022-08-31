@@ -37,6 +37,9 @@
 	function clearFilter() {
 		filter.set(null);
 
+		selectedFilterKey = filterableColumns.at(0)?.key || '';
+		selectedFilterValue = '';
+
 		closeFilterModal();
 	}
 </script>

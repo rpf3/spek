@@ -3,4 +3,4 @@ import type { Writable } from 'svelte/store';
 
 import { writable } from 'svelte/store';
 
-export const filter: Writable<FilterState> = writable();
+export const filter: Writable<FilterState | null> = writable();

@@ -33,6 +33,12 @@
 
 		closeFilterModal();
 	}
+
+	function clearFilter() {
+		filter.set(null);
+
+		closeFilterModal();
+	}
 </script>
 
 {#if filterableColumns.length > 0}
@@ -62,7 +68,7 @@
 		</div>
 
 		<div slot="footer" class="flex flex-row gap-3">
-			<SecondaryButton on:click={closeFilterModal}>Cancel</SecondaryButton>
+			<SecondaryButton on:click={clearFilter}>Clear</SecondaryButton>
 			<PrimaryButton on:click={applyFilter}>Apply</PrimaryButton>
 		</div>
 	</Modal>

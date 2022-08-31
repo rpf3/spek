@@ -44,7 +44,7 @@
 		<p slot="header">Filter</p>
 
 		<div slot="body" class="grid grid-cols-2 gap-5">
-			<select bind:value={selectedFilterKey}>
+			<select bind:value={selectedFilterKey} class="border border-slate-200 rounded px-1 py-1">
 				{#each columns as column}
 					<option value={column.key}>{column.header}</option>
 				{/each}

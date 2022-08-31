@@ -2,15 +2,18 @@
 	import type { Column } from '$lib/types';
 
 	import Table from '$lib/components/Table.svelte';
+	import TableFilter from '$lib/components/TableFilter.svelte';
 
 	const columns: Column[] = [
 		{
 			key: 'name',
-			header: 'Name'
+			header: 'Name',
+			filterable: true
 		},
 		{
 			key: 'email',
-			header: 'Email'
+			header: 'Email',
+			filterable: true
 		},
 		{
 			key: 'age',
@@ -51,5 +54,6 @@
 </script>
 
 <div class="max-w-screen-lg w-1/4 mx-auto my-10">
+	<TableFilter {columns} />
 	<Table {columns} {data} />
 </div>

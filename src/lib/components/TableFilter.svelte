@@ -10,6 +10,8 @@
 
 	export let columns: Column[];
 
+	let filterableColumns = columns.filter((column) => column.filterable);
+
 	let isModalVisible = false;
 
 	let selectedFilterKey: string;
@@ -33,11 +35,13 @@
 	}
 </script>
 
-<div class="flex flex-row-reverse">
-	<button on:click={openFilterModal}>
-		<Filter />
-	</button>
-</div>
+{#if filterableColumns.length > 0}
+	<div class="flex flex-row-reverse">
+		<button on:click={openFilterModal}>
+			<Filter />
+		</button>
+	</div>
+{/if}
 
 {#if isModalVisible}
 	<Modal on:close={closeFilterModal}>
@@ -45,7 +49,7 @@
 
 		<div slot="body" class="grid grid-cols-2 gap-5">
 			<select bind:value={selectedFilterKey} class="border border-slate-200 rounded px-1 py-1">
-				{#each columns as column}
+				{#each filterableColumns as column}
 					<option value={column.key}>{column.header}</option>
 				{/each}
 			</select>

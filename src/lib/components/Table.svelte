@@ -28,7 +28,7 @@
 	page.init(mergedConfig);
 </script>
 
-<div class="flex flex-col gap-1 divide-y divid-solid p-2">
+<div class="flex flex-col gap-1 divide-y divide-solid p-2">
 	<Row>
 		<svelte:fragment>
 			{#each columns as column}

@@ -20,10 +20,30 @@ function create() {
 		});
 	}
 
+	function previous() {
+		store.update((state) => {
+			return {
+				skip: state.skip - state.take,
+				take: state.take
+			};
+		});
+	}
+
+	function next() {
+		store.update((state) => {
+			return {
+				skip: state.skip + state.take,
+				take: state.take
+			};
+		});
+	}
+
 	return {
 		subscribe,
 		set,
-		init
+		init,
+		previous,
+		next
 	};
 }
 

@@ -5,7 +5,7 @@ import type { Config } from '$lib/types';
 import { writable } from 'svelte/store';
 
 function create() {
-	const store: Writable<PageState | null> = writable();
+	const store: Writable<PageState> = writable();
 
 	const { subscribe, set } = store;
 

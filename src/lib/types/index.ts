@@ -33,3 +33,8 @@ export type FilterState = {
 	key: string;
 	value: string;
 };
+
+export type PageState = {
+	skip: number;
+	take: number;
+};

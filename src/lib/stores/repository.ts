@@ -2,11 +2,13 @@ import type { DataSet } from '$lib/types';
 import type { FilterState } from '$lib/types';
 import type { SortState } from '$lib/types';
 import type { DataRow } from '$lib/types';
+import type { PageState } from '$lib/types';
 
 import { derived } from 'svelte/store';
 import { dataset } from './dataset';
 import { filter } from './filter';
 import { sort } from './sort';
+import { page } from './page';
 import { getRowValue } from '$lib/utils';
 import { SortDirection } from '$lib/types';
 
@@ -47,21 +49,34 @@ function filterRows(rows: DataRow[], state: FilterState | null): DataRow[] {
 	return result;
 }
 
+function pageRows(rows: DataRow[], state: PageState | null): DataRow[] {
+	if (state === undefined || state === null) {
+		return rows;
+	}
+
+	const result = rows.splice(state.skip, state.take);
+
+	return result;
+}
+
 function transform(
 	originalDataSet: DataSet,
 	sortState: SortState,
-	filterState: FilterState | null
+	filterState: FilterState | null,
+	pageState: PageState | null
 ) {
 	const filtered = filterRows(originalDataSet.rows, filterState);
 	const sorted = sortRows(filtered, sortState);
+	const paged = pageRows(sorted, pageState);
 
 	const result: DataSet = {
-		rows: sorted
+		rows: paged
 	};
 
 	return result;
 }
 
-export const repository = derived([dataset, sort, filter], ([$dataset, $sort, $filter]) =>
-	transform($dataset, $sort, $filter)
+export const repository = derived(
+	[dataset, sort, filter, page],
+	([$dataset, $sort, $filter, $page]) => transform($dataset, $sort, $filter, $page)
 );

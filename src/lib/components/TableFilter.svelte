@@ -45,11 +45,9 @@
 </script>
 
 {#if filterableColumns.length > 0}
-	<div class="flex flex-row-reverse">
-		<button on:click={openFilterModal}>
-			<Filter />
-		</button>
-	</div>
+	<button on:click={openFilterModal}>
+		<Filter />
+	</button>
 {/if}
 
 {#if isModalVisible}

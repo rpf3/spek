@@ -5,6 +5,7 @@
 	import { dataset } from '$lib/stores/dataset';
 	import { repository } from '$lib/stores/repository';
 	import { page } from '$lib/stores/page';
+	import { defaultConfig } from '$lib/types';
 
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
@@ -13,14 +14,7 @@
 
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
-	export let config: Config;
-
-	const defaultConfig: Config = {
-		pagination: {
-			enabled: true,
-			size: 10
-		}
-	};
+	export let config: Config = defaultConfig;
 
 	const mergedConfig = Object.assign(defaultConfig, config);
 

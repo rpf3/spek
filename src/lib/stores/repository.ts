@@ -54,7 +54,7 @@ function pageRows(rows: DataRow[], state: PageState | null): DataRow[] {
 		return rows;
 	}
 
-	const result = rows.splice(state.skip, state.take);
+	const result = rows.slice(state.skip, state.skip + state.take);
 
 	return result;
 }

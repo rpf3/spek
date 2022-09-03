@@ -6,54 +6,35 @@
 
 	const columns: Column[] = [
 		{
-			key: 'name',
-			header: 'Name',
+			key: 'id',
+			header: 'ID',
 			filterable: true
 		},
 		{
-			key: 'email',
-			header: 'Email',
+			key: 'userId',
+			header: 'User ID',
 			filterable: true
 		},
 		{
-			key: 'age',
-			header: 'Age'
-		},
-		{
-			key: 'ring',
-			header: 'Ring Bearer'
+			key: 'title',
+			header: 'Title',
+			filterable: true
 		}
 	];
 
-	const data = [
-		{
-			name: 'Frodo',
-			email: 'frodo@baggins.com',
-			age: 50,
-			ring: true
-		},
-		{
-			name: 'Samwise',
-			email: 'sam@wise.io',
-			age: 38,
-			ring: true
-		},
-		{
-			name: 'Merry',
-			email: 'merry@shire.net',
-			age: 36,
-			ring: false
-		},
-		{
-			name: 'Pippin',
-			email: 'pip@shire.net',
-			age: 27,
-			ring: false
-		}
-	];
+	async function fetchAlbums() {
+		const response = await fetch('https://jsonplaceholder.typicode.com/albums');
+		const albums = await response.json();
+
+		return albums;
+	}
+
+	let promise = fetchAlbums();
 </script>
 
-<div class="max-w-screen-lg w-1/4 mx-auto my-10">
-	<TableFilter {columns} />
-	<Table {columns} {data} />
-</div>
+{#await promise then albums}
+	<div class="max-w-screen-lg w-1/4 mx-auto my-10">
+		<TableFilter {columns} />
+		<Table {columns} data={albums} />
+	</div>
+{/await}

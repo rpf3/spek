@@ -33,7 +33,7 @@
 </script>
 
 {#await promise then albums}
-	<div class="max-w-screen-lg w-1/4 mx-auto my-10">
+	<div class="max-w-screen-lg w-1/2 mx-auto my-10">
 		<TableFilter {columns} />
 		<Table {columns} data={albums} />
 	</div>

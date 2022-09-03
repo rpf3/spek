@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	:root {
+		--color-text-base: 0 0 0;
+		--color-text-inverted: 255 255 255;
+		--color-button-primary: 8 145 178;
+		--color-button-secondary: 8 145 178;
+		--color-button-secondary-hover: 241, 245, 249;
+	}
+}

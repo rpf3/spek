@@ -12,6 +12,24 @@ function withOpacity(variableName) {
 
 module.exports = plugin(() => {}, {
 	theme: {
-		extend: {}
+		extend: {
+			textColor: {
+				skin: {
+					base: withOpacity('--color-text-base'),
+					inverted: withOpacity('--color-text-inverted')
+				}
+			},
+			backgroundColor: {
+				skin: {
+					'button-primary': withOpacity('--color-button-primary'),
+					'button-secondary-hover': withOpacity('--color-button-secondary-hover')
+				}
+			},
+			borderColor: {
+				skin: {
+					'button-secondary': withOpacity('--color-button-secondary')
+				}
+			}
+		}
 	}
 });

@@ -47,3 +47,10 @@ export type PaginationConfig = {
 export type Config = {
 	pagination: PaginationConfig;
 };
+
+export const defaultConfig: Config = {
+	pagination: {
+		enabled: true,
+		size: 10
+	}
+};

@@ -11,6 +11,7 @@
 	import HeaderCell from './HeaderCell.svelte';
 	import Row from './Row.svelte';
 	import Paginator from './Paginator.svelte';
+	import TableFilter from '$lib/components/TableFilter.svelte';
 
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -22,6 +23,13 @@
 	page.init(mergedConfig);
 </script>
 
+<div class="flex justify-between">
+	<TableFilter {columns} />
+
+	{#if mergedConfig.pagination.enabled}
+		<Paginator />
+	{/if}
+</div>
 <div class="flex flex-col gap-1 divide-y divide-solid p-2">
 	<Row>
 		<svelte:fragment>
@@ -41,7 +49,3 @@
 		</Row>
 	{/each}
 </div>
-
-{#if mergedConfig.pagination.enabled}
-	<Paginator />
-{/if}

@@ -9,6 +9,7 @@
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
 	import Row from './Row.svelte';
+	import Paginator from './Paginator.svelte';
 
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -46,3 +47,7 @@
 		</Row>
 	{/each}
 </div>
+
+{#if mergedConfig.pagination.enabled}
+	<Paginator />
+{/if}

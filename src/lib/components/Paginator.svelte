@@ -18,11 +18,19 @@
 </script>
 
 <div class="flex justify-center gap-1">
-	<button class="border rounded p-1" on:click={page.previous} disabled={disablePrevious}>
+	<button
+		class="border rounded p-1 hover:bg-skin-button-secondary-hover disabled:hover:bg-inherit"
+		on:click={page.previous}
+		disabled={disablePrevious}
+	>
 		<Left />
 	</button>
 
-	<button class="border rounded p-1" on:click={page.next} disabled={disableNext}>
+	<button
+		class="border rounded p-1 hover:bg-skin-button-secondary-hover disabled:hover:bg-inherit"
+		on:click={page.next}
+		disabled={disableNext}
+	>
 		<Right />
 	</button>
 </div>

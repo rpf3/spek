@@ -38,3 +38,12 @@ export type PageState = {
 	skip: number;
 	take: number;
 };
+
+export type PaginationConfig = {
+	enabled: boolean;
+	size: number;
+};
+
+export type Config = {
+	pagination: PaginationConfig;
+};

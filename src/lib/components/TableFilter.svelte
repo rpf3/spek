@@ -45,7 +45,7 @@
 		closeFilterModal();
 	}
 
-	const unsubscribe = filter.subscribe((state) => {
+	const unsubscribe = filter.subscribe(() => {
 		page.set({
 			skip: 0,
 			take: $page.take

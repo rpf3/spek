@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$lib/stores/page';
-	import { dataset } from '$lib/stores/dataset';
+	import { repository } from '$lib/stores/repository';
 	import { onDestroy } from 'svelte';
 
 	import Left from './icons/Left.svelte';
@@ -11,7 +11,7 @@
 
 	const unsubscribe = page.subscribe((state) => {
 		disablePrevious = state.skip === 0;
-		disableNext = state.skip + state.take >= $dataset.rows.length;
+		disableNext = state.skip + state.take >= $repository.total;
 	});
 
 	onDestroy(unsubscribe);

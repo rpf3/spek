@@ -35,6 +35,9 @@ module.exports = plugin(() => {}, {
 	safelist: [
 		{
 			pattern: /grid-cols-*/
+		},
+		{
+			pattern: /col-span-*/
 		}
 	]
 });

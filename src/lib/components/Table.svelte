@@ -19,6 +19,12 @@
 
 	const mergedConfig = Object.assign(defaultConfig, config);
 
+	const columnCount = columns
+		.map((column) => column.size ?? 1)
+		.reduce((total, current) => {
+			return total + current;
+		}, 0);
+
 	dataset.init(data);
 	page.init(mergedConfig);
 </script>
@@ -27,16 +33,16 @@
 	<TableFilter {columns} />
 </div>
 
-<div class="grid grid-cols-{columns.length} gap-y-3">
+<div class="grid grid-cols-{columnCount} gap-y-3">
 	{#each columns as column}
-		<Cell>
+		<Cell {column}>
 			<HeaderCell {column} />
 		</Cell>
 	{/each}
 
 	{#each $repository.rows as row}
 		{#each columns as column}
-			<Cell>
+			<Cell {column}>
 				{#if column.slots?.cell}
 					<svelte:component this={column.slots.cell} {row} {column} />
 				{:else}

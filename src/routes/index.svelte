@@ -2,6 +2,7 @@
 	import type { Column } from '$lib/types';
 
 	import Table from '$lib/components/Table.svelte';
+	import UserCell from './UserCell.svelte';
 
 	const columns: Column[] = [
 		{
@@ -14,7 +15,10 @@
 			key: 'userId',
 			header: 'User ID',
 			filterable: true,
-			sortable: true
+			sortable: true,
+			slots: {
+				cell: UserCell
+			}
 		},
 		{
 			key: 'title',

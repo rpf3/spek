@@ -48,7 +48,8 @@ function createDataRows(data: any[]): DataRow[] {
 
 function create() {
 	const store: Writable<DataSet> = writable({
-		rows: []
+		rows: [],
+		total: 0
 	});
 
 	const { subscribe, set } = store;
@@ -58,7 +59,8 @@ function create() {
 		const rows = createDataRows(data);
 
 		set({
-			rows: rows
+			rows: rows,
+			total: rows.length
 		});
 	}
 

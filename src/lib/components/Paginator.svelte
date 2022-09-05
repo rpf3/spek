@@ -9,9 +9,9 @@
 	let disablePrevious = false;
 	let disableNext = false;
 
-	const unsubscribe = page.subscribe((state) => {
-		disablePrevious = state.skip === 0;
-		disableNext = state.skip + state.take >= $repository.total;
+	const unsubscribe = repository.subscribe((data) => {
+		disablePrevious = $page.skip === 0;
+		disableNext = $page.skip + $page.take >= data.total;
 	});
 
 	onDestroy(unsubscribe);

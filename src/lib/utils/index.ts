@@ -1,6 +1,6 @@
 import type { DataRow } from '$lib/types';
 
-function getRowValue(row: DataRow, key: string): string | number | null {
+function getCellValue(row: DataRow, key: string): string | number | null {
 	const dataItem = row.items.find((item) => item.key === key);
 
 	if (dataItem === undefined) {
@@ -10,4 +10,6 @@ function getRowValue(row: DataRow, key: string): string | number | null {
 	return dataItem.value;
 }
 
-export { getRowValue };
+const utils = { getCellValue };
+
+export default utils;

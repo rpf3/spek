@@ -7,17 +7,20 @@
 		{
 			key: 'id',
 			header: 'ID',
-			filterable: true
+			filterable: true,
+			sortable: true
 		},
 		{
 			key: 'userId',
 			header: 'User ID',
-			filterable: true
+			filterable: true,
+			sortable: true
 		},
 		{
 			key: 'title',
 			header: 'Title',
-			filterable: true
+			filterable: true,
+			sortable: true
 		}
 	];
 

@@ -5,8 +5,8 @@ import type { Writable } from 'svelte/store';
 
 import { writable } from 'svelte/store';
 
-function sanitizeValue(value: unknown): string {
-	if (typeof value === 'string') {
+function sanitizeValue(value: unknown): string | number {
+	if (typeof value === 'string' || typeof value === 'number') {
 		return value;
 	}
 

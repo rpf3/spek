@@ -13,10 +13,22 @@ import { getRowValue } from '$lib/utils';
 import { SortDirection } from '$lib/types';
 
 function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
-	const value1 = getRowValue(row1, key) || '';
-	const value2 = getRowValue(row2, key) || '';
+	const value1 = getRowValue(row1, key);
+	const value2 = getRowValue(row2, key);
 
-	return value1.localeCompare(value2);
+	if (value1 === value2) {
+		return 0;
+	}
+
+	if (value1 === null) {
+		return -1;
+	}
+
+	if (value2 === null) {
+		return 1;
+	}
+
+	return value1 < value2 ? -1 : 1;
 }
 
 function sortRows(rows: DataRow[], state: SortState): DataRow[] {
@@ -41,9 +53,13 @@ function filterRows(rows: DataRow[], state: FilterState | null): DataRow[] {
 	}
 
 	const result = rows.filter((row) => {
-		const dataItemValue = getRowValue(row, state.key) || '';
+		const dataItemValue = getRowValue(row, state.key);
 
-		return dataItemValue.includes(state.value);
+		if (dataItemValue === null) {
+			return false;
+		}
+
+		return dataItemValue.toString().includes(state.value);
 	});
 
 	return result;

@@ -7,6 +7,7 @@
 	import { page } from '$lib/stores/page';
 	import { defaultConfig } from '$lib/types';
 
+	import Cell from './Cell.svelte';
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
 	import Row from './Row.svelte';
@@ -34,7 +35,9 @@
 	<Row>
 		<svelte:fragment>
 			{#each columns as column}
-				<HeaderCell {column} />
+				<Cell>
+					<HeaderCell {column} />
+				</Cell>
 			{/each}
 		</svelte:fragment>
 	</Row>
@@ -43,11 +46,13 @@
 		<Row>
 			<svelte:fragment>
 				{#each columns as column}
-					{#if column.slot}
-						<svelte:component this={column.slot} {row} {column} />
-					{:else}
-						<DataCell {row} {column} />
-					{/if}
+					<Cell>
+						{#if column.slot}
+							<svelte:component this={column.slot} {row} {column} />
+						{:else}
+							<DataCell {row} {column} />
+						{/if}
+					</Cell>
 				{/each}
 			</svelte:fragment>
 		</Row>

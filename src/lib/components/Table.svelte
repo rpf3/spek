@@ -24,13 +24,10 @@
 	page.init(mergedConfig);
 </script>
 
-<div class="flex justify-between">
+<div class="flex justify-end">
 	<TableFilter {columns} />
-
-	{#if mergedConfig.pagination.enabled}
-		<Paginator />
-	{/if}
 </div>
+
 <div class="flex flex-col gap-1 divide-y divide-solid p-2">
 	<Row>
 		<svelte:fragment>
@@ -58,3 +55,9 @@
 		</Row>
 	{/each}
 </div>
+
+{#if mergedConfig.pagination.enabled}
+	<div class="flex justify-end gap-1">
+		<Paginator />
+	</div>
+{/if}

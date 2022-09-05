@@ -2,6 +2,8 @@
 	import type { Column } from '$lib/types';
 
 	import { filter } from '$lib/stores/filter';
+	import { page } from '$lib/stores/page';
+	import { onDestroy } from 'svelte';
 
 	import Filter from './icons/Filter.svelte';
 	import Modal from './Modal.svelte';
@@ -42,6 +44,15 @@
 
 		closeFilterModal();
 	}
+
+	const unsubscribe = filter.subscribe((state) => {
+		page.set({
+			skip: 0,
+			take: $page.take
+		});
+	});
+
+	onDestroy(unsubscribe);
 </script>
 
 {#if filterableColumns.length > 0}

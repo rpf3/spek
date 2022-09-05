@@ -1,11 +1,18 @@
-import type { ComponentType } from 'svelte';
+import type { ComponentType, SvelteComponentTyped } from 'svelte';
+
+type DataCellProps = {
+	row: DataRow;
+	column: Column;
+};
+
+type DataCellComponent = SvelteComponentTyped<DataCellProps, any>;
 
 export type Column = {
 	key: string;
 	header: string;
 	sortable?: boolean;
 	filterable?: boolean;
-	slot?: ComponentType;
+	slot?: ComponentType<DataCellComponent>;
 };
 
 export type DataItem = {

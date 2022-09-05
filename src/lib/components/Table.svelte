@@ -10,7 +10,6 @@
 	import Cell from './Cell.svelte';
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
-	import Row from './Row.svelte';
 	import Paginator from './Paginator.svelte';
 	import TableFilter from '$lib/components/TableFilter.svelte';
 
@@ -24,40 +23,32 @@
 	page.init(mergedConfig);
 </script>
 
-<div class="flex justify-end">
+<div class="flex justify-end mb-3">
 	<TableFilter {columns} />
 </div>
 
-<div class="flex flex-col gap-1 divide-y divide-solid p-2">
-	<Row>
-		<svelte:fragment>
-			{#each columns as column}
-				<Cell>
-					<HeaderCell {column} />
-				</Cell>
-			{/each}
-		</svelte:fragment>
-	</Row>
+<div class="grid grid-cols-{columns.length} gap-y-3">
+	{#each columns as column}
+		<Cell>
+			<HeaderCell {column} />
+		</Cell>
+	{/each}
 
 	{#each $repository.rows as row}
-		<Row>
-			<svelte:fragment>
-				{#each columns as column}
-					<Cell>
-						{#if column.slots?.cell}
-							<svelte:component this={column.slots.cell} {row} {column} />
-						{:else}
-							<DataCell {row} {column} />
-						{/if}
-					</Cell>
-				{/each}
-			</svelte:fragment>
-		</Row>
+		{#each columns as column}
+			<Cell>
+				{#if column.slots?.cell}
+					<svelte:component this={column.slots.cell} {row} {column} />
+				{:else}
+					<DataCell {row} {column} />
+				{/if}
+			</Cell>
+		{/each}
 	{/each}
 </div>
 
 {#if mergedConfig.pagination.enabled}
-	<div class="flex justify-end gap-1">
+	<div class="flex justify-end gap-1 mt-3">
 		<Paginator />
 	</div>
 {/if}

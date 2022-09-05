@@ -1,8 +1,11 @@
+import type { ComponentType } from 'svelte';
+
 export type Column = {
 	key: string;
 	header: string;
 	sortable?: boolean;
 	filterable?: boolean;
+	slot?: ComponentType;
 };
 
 export type DataItem = {

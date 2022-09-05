@@ -86,7 +86,8 @@ function transform(
 	const paged = pageRows(sorted, pageState);
 
 	const result: DataSet = {
-		rows: paged
+		rows: paged,
+		total: filtered.length
 	};
 
 	return result;

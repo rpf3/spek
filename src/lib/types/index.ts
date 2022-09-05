@@ -16,6 +16,7 @@ export type DataRow = {
 
 export type DataSet = {
 	rows: DataRow[];
+	total: number;
 };
 
 export enum SortDirection {

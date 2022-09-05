@@ -12,7 +12,9 @@ export type Column = {
 	header: string;
 	sortable?: boolean;
 	filterable?: boolean;
-	slot?: ComponentType<DataCellComponent>;
+	slots?: {
+		cell?: ComponentType<DataCellComponent>;
+	};
 };
 
 export type DataItem = {

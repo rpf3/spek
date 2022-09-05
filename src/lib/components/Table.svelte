@@ -47,8 +47,8 @@
 			<svelte:fragment>
 				{#each columns as column}
 					<Cell>
-						{#if column.slot}
-							<svelte:component this={column.slot} {row} {column} />
+						{#if column.slots?.cell}
+							<svelte:component this={column.slots.cell} {row} {column} />
 						{:else}
 							<DataCell {row} {column} />
 						{/if}

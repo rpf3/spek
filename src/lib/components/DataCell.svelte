@@ -11,5 +11,5 @@
 </script>
 
 <Cell>
-	<span class="overflow-hidden">{getRowValue(row, column.key)}</span>
+	<div class="overflow-hidden whitespace-nowrap text-ellipsis">{getRowValue(row, column.key)}</div>
 </Cell>

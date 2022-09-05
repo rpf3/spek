@@ -36,7 +36,7 @@ function sortRows(rows: DataRow[], state: SortState): DataRow[] {
 		return rows;
 	}
 
-	rows.sort((row1: DataRow, row2: DataRow) => {
+	const result = [...rows].sort((row1: DataRow, row2: DataRow) => {
 		if (state.direction === SortDirection.Ascending) {
 			return rowComparator(row1, row2, state.key);
 		}
@@ -44,7 +44,7 @@ function sortRows(rows: DataRow[], state: SortState): DataRow[] {
 		return rowComparator(row2, row1, state.key);
 	});
 
-	return rows;
+	return result;
 }
 
 function filterRows(rows: DataRow[], state: FilterState | null): DataRow[] {

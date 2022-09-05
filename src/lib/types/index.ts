@@ -5,7 +5,7 @@ type DataCellProps = {
 	column: Column;
 };
 
-type DataCellComponent = SvelteComponentTyped<DataCellProps, any>;
+type DataCellComponent = SvelteComponentTyped<DataCellProps, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 export type Column = {
 	key: string;

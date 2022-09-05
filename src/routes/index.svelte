@@ -13,18 +13,26 @@
 		},
 		{
 			key: 'userId',
-			header: 'User ID',
+			header: 'User',
 			filterable: true,
-			sortable: true,
 			slots: {
 				cell: UserCell
 			}
 		},
 		{
 			key: 'title',
-			header: 'Title',
+			header: 'Title 1',
 			filterable: true,
-			sortable: true
+			size: 3
+		},
+		{
+			key: 'title',
+			header: 'Title 2'
+		},
+		{
+			key: 'title',
+			header: 'Title 3',
+			size: 2
 		}
 	];
 

@@ -32,7 +32,7 @@ function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
 }
 
 function sortRows(rows: DataRow[], state: SortState): DataRow[] {
-	if (state === undefined || state === null) {
+	if (state === undefined || state === null || state.direction === SortDirection.None) {
 		return rows;
 	}
 

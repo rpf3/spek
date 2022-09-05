@@ -5,11 +5,15 @@ import { SortDirection } from '$lib/types';
 import { writable } from 'svelte/store';
 
 function changeSortDirection(current: SortDirection) {
+	if (current === SortDirection.None) {
+		return SortDirection.Ascending;
+	}
+
 	if (current === SortDirection.Ascending) {
 		return SortDirection.Descending;
 	}
 
-	return SortDirection.Ascending;
+	return SortDirection.None;
 }
 
 function create() {

@@ -4,11 +4,11 @@
 	import { filter } from '$lib/table/stores/filter';
 	import { page } from '$lib/table/stores/page';
 	import { onDestroy } from 'svelte';
+	import { ButtonType, ButtonMode } from '$lib/button/types';
 
 	import Filter from '$lib/icon/Filter.svelte';
 	import Dialog from '../../dialog/Dialog.svelte';
-	import PrimaryButton from '$lib/button/PrimaryButton.svelte';
-	import SecondaryButton from '$lib/button/SecondaryButton.svelte';
+	import Button from '$lib/button/Button.svelte';
 
 	export let columns: Column[];
 
@@ -80,8 +80,8 @@
 		</div>
 
 		<div slot="footer" class="flex flex-row gap-3">
-			<SecondaryButton on:click={clearFilter}>Clear</SecondaryButton>
-			<PrimaryButton on:click={applyFilter}>Apply</PrimaryButton>
+			<Button type={ButtonType.Accent} mode={ButtonMode.Ring} on:click={clearFilter}>Clear</Button>
+			<Button type={ButtonType.Primary} mode={ButtonMode.Fill} on:click={applyFilter}>Apply</Button>
 		</div>
 	</Dialog>
 {/if}

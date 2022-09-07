@@ -22,12 +22,14 @@ module.exports = plugin(() => {}, {
 			backgroundColor: {
 				skin: {
 					'button-primary': withOpacity('--color-button-primary'),
-					'button-secondary-hover': withOpacity('--color-button-secondary-hover')
+					'button-accent': withOpacity('--color-button-accent'),
+					'button-ring-hover': withOpacity('--color-button-ring-hover')
 				}
 			},
 			borderColor: {
 				skin: {
-					'button-secondary': withOpacity('--color-button-secondary')
+					'button-primary': withOpacity('--color-button-primary'),
+					'button-accent': withOpacity('--color-button-accent')
 				}
 			}
 		}

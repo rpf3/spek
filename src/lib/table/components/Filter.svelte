@@ -7,7 +7,7 @@
 	import { ButtonType, ButtonMode } from '$lib/button/types';
 
 	import Filter from '$lib/icon/Filter.svelte';
-	import Dialog from '../../dialog/Dialog.svelte';
+	import Dialog from '$lib/dialog/Dialog.svelte';
 	import Button from '$lib/button/Button.svelte';
 
 	export let columns: Column[];

@@ -7,10 +7,10 @@
 	import { page } from '$lib/table/stores/page';
 	import { defaultConfig } from '$lib/table/types';
 
-	import Cell from './components/Cell.svelte';
-	import DataCell from './components/DataCell.svelte';
-	import HeaderCell from './components/HeaderCell.svelte';
-	import Paginator from './components/Paginator.svelte';
+	import Cell from '$lib/table/components/Cell.svelte';
+	import DataCell from '$lib/table/components/DataCell.svelte';
+	import HeaderCell from '$lib/table/components/HeaderCell.svelte';
+	import Paginator from '$lib/table/components/Paginator.svelte';
 	import Filter from '$lib/table/components/Filter.svelte';
 
 	export let columns: Column[];

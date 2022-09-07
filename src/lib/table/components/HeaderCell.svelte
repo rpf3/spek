@@ -4,8 +4,8 @@
 	import { SortDirection } from '$lib/table/types';
 	import { sort } from '$lib/table/stores/sort';
 
-	import Ascending from './icons/Ascending.svelte';
-	import Descending from './icons/Descending.svelte';
+	import Ascending from '$lib/icon/Ascending.svelte';
+	import Descending from '$lib/icon/Descending.svelte';
 
 	export let column: Column;
 

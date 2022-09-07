@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Column } from '$lib/types';
-	import type { DataRow } from '$lib/types';
+	import type { Column } from '$lib/table/types';
+	import type { DataRow } from '$lib/table/types';
 
-	import utils from '$lib/utils';
+	import utils from '$lib/table/utils';
 
 	import UserIcon from './UserIcon.svelte';
 

@@ -1,6 +1,6 @@
-import type { PageState } from '$lib/types';
+import type { PageState } from '$lib/table/types';
 import type { Writable } from 'svelte/store';
-import type { Config } from '$lib/types';
+import type { Config } from '$lib/table/types';
 
 import { writable } from 'svelte/store';
 

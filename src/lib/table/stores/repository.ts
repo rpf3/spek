@@ -1,16 +1,16 @@
-import type { DataSet } from '$lib/types';
-import type { FilterState } from '$lib/types';
-import type { SortState } from '$lib/types';
-import type { DataRow } from '$lib/types';
-import type { PageState } from '$lib/types';
+import type { DataSet } from '$lib/table/types';
+import type { FilterState } from '$lib/table/types';
+import type { SortState } from '$lib/table/types';
+import type { DataRow } from '$lib/table/types';
+import type { PageState } from '$lib/table/types';
 
 import { derived } from 'svelte/store';
 import { dataset } from './dataset';
 import { filter } from './filter';
 import { sort } from './sort';
 import { page } from './page';
-import { SortDirection } from '$lib/types';
-import utils from '$lib/utils';
+import { SortDirection } from '$lib/table/types';
+import utils from '$lib/table/utils';
 
 function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
 	const value1 = utils.getCellValue(row1, key);

@@ -1,7 +1,7 @@
-import type { SortState } from '$lib/types';
+import type { SortState } from '$lib/table/types';
 import type { Writable } from 'svelte/store';
 
-import { SortDirection } from '$lib/types';
+import { SortDirection } from '$lib/table/types';
 import { writable } from 'svelte/store';
 
 function changeSortDirection(current: SortDirection) {

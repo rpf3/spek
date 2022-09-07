@@ -1,4 +1,4 @@
-import type { DataRow } from '$lib/types';
+import type { DataRow } from '$lib/table/types';
 
 function getCellValue(row: DataRow, key: string): string | number | null {
 	const dataItem = row.items.find((item) => item.key === key);

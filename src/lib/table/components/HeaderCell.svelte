@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Column } from '$lib/types';
+	import type { Column } from '$lib/table/types';
 
-	import { SortDirection } from '$lib/types';
-	import { sort } from '$lib/stores/sort';
+	import { SortDirection } from '$lib/table/types';
+	import { sort } from '$lib/table/stores/sort';
 
 	import Ascending from './icons/Ascending.svelte';
 	import Descending from './icons/Descending.svelte';

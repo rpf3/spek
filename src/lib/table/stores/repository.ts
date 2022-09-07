@@ -5,10 +5,10 @@ import type { DataRow } from '$lib/table/types';
 import type { PageState } from '$lib/table/types';
 
 import { derived } from 'svelte/store';
-import { dataset } from './dataset';
-import { filter } from './filter';
-import { sort } from './sort';
-import { page } from './page';
+import { dataset } from '$lib/table/stores/dataset';
+import { filter } from '$lib/table/stores/filter';
+import { sort } from '$lib/table/stores/sort';
+import { page } from '$lib/table/stores/page';
 import { SortDirection } from '$lib/table/types';
 import utils from '$lib/table/utils';
 

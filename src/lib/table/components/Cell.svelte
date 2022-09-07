@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Column } from '$lib/types';
+	import type { Column } from '$lib/table/types';
 
 	export let column: Column;
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { page } from '$lib/stores/page';
-	import { repository } from '$lib/stores/repository';
+	import { page } from '$lib/table/stores/page';
+	import { repository } from '$lib/table/stores/repository';
 	import { onDestroy } from 'svelte';
 
 	import Left from './icons/Left.svelte';

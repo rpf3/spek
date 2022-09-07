@@ -1,17 +1,17 @@
 <script lang="ts">
-	import type { Column } from '$lib/types';
-	import type { Config } from '$lib/types';
+	import type { Column } from '$lib/table/types';
+	import type { Config } from '$lib/table/types';
 
-	import { dataset } from '$lib/stores/dataset';
-	import { repository } from '$lib/stores/repository';
-	import { page } from '$lib/stores/page';
-	import { defaultConfig } from '$lib/types';
+	import { dataset } from '$lib/table/stores/dataset';
+	import { repository } from '$lib/table/stores/repository';
+	import { page } from '$lib/table/stores/page';
+	import { defaultConfig } from '$lib/table/types';
 
 	import Cell from './Cell.svelte';
 	import DataCell from './DataCell.svelte';
 	import HeaderCell from './HeaderCell.svelte';
 	import Paginator from './Paginator.svelte';
-	import TableFilter from '$lib/components/TableFilter.svelte';
+	import TableFilter from '$lib/table/components/TableFilter.svelte';
 
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any

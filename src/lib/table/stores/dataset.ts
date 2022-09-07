@@ -1,6 +1,6 @@
-import type { DataItem } from '$lib/types';
-import type { DataRow } from '$lib/types';
-import type { DataSet } from '$lib/types';
+import type { DataItem } from '$lib/table/types';
+import type { DataRow } from '$lib/table/types';
+import type { DataSet } from '$lib/table/types';
 import type { Writable } from 'svelte/store';
 
 import { writable } from 'svelte/store';

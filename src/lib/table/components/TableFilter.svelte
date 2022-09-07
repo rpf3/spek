@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Column } from '$lib/types';
+	import type { Column } from '$lib/table/types';
 
-	import { filter } from '$lib/stores/filter';
-	import { page } from '$lib/stores/page';
+	import { filter } from '$lib/table/stores/filter';
+	import { page } from '$lib/table/stores/page';
 	import { onDestroy } from 'svelte';
 
 	import Filter from './icons/Filter.svelte';

@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	import Close from './icons/Close.svelte';
+	import Close from '$lib/icon/Close.svelte';
 
 	const dispatch = createEventDispatcher();
 

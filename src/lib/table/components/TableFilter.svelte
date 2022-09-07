@@ -5,7 +5,7 @@
 	import { page } from '$lib/table/stores/page';
 	import { onDestroy } from 'svelte';
 
-	import Filter from './icons/Filter.svelte';
+	import Filter from '$lib/icon/Filter.svelte';
 	import Modal from './Modal.svelte';
 	import PrimaryButton from './PrimaryButton.svelte';
 	import SecondaryButton from './SecondaryButton.svelte';

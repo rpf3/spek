@@ -3,8 +3,8 @@
 	import { repository } from '$lib/table/stores/repository';
 	import { onDestroy } from 'svelte';
 
-	import Left from './icons/Left.svelte';
-	import Right from './icons/Right.svelte';
+	import Left from '$lib/icon/Left.svelte';
+	import Right from '$lib/icon/Right.svelte';
 
 	let disablePrevious = false;
 	let disableNext = false;

@@ -11,7 +11,7 @@
 	import DataCell from './components/DataCell.svelte';
 	import HeaderCell from './components/HeaderCell.svelte';
 	import Paginator from './components/Paginator.svelte';
-	import TableFilter from '$lib/table/components/TableFilter.svelte';
+	import Filter from '$lib/table/components/Filter.svelte';
 
 	export let columns: Column[];
 	export let data: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex justify-end mb-3">
-	<TableFilter {columns} />
+	<Filter {columns} />
 </div>
 
 <div class="grid grid-cols-{columnCount} gap-y-3">

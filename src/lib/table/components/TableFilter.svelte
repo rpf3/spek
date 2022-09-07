@@ -7,8 +7,8 @@
 
 	import Filter from '$lib/icon/Filter.svelte';
 	import Modal from './Modal.svelte';
-	import PrimaryButton from './PrimaryButton.svelte';
-	import SecondaryButton from './SecondaryButton.svelte';
+	import PrimaryButton from '$lib/button/PrimaryButton.svelte';
+	import SecondaryButton from '$lib/button/SecondaryButton.svelte';
 
 	export let columns: Column[];
 

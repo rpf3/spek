@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
 
-	import Table from '$lib/table/components/Table.svelte';
+	import Table from '$lib/table/Table.svelte';
 	import UserCell from './_components/UserCell.svelte';
 
 	const columns: Column[] = [

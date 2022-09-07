@@ -1,3 +1,3 @@
 export * from './types';
 
-export { default as Table } from './components/Table.svelte';
+export { default as Table } from './Table.svelte';

@@ -6,7 +6,7 @@
 	import { onDestroy } from 'svelte';
 
 	import Filter from '$lib/icon/Filter.svelte';
-	import Modal from './Modal.svelte';
+	import Dialog from '../../dialog/Dialog.svelte';
 	import PrimaryButton from '$lib/button/PrimaryButton.svelte';
 	import SecondaryButton from '$lib/button/SecondaryButton.svelte';
 
@@ -62,7 +62,7 @@
 {/if}
 
 {#if isModalVisible}
-	<Modal on:close={closeFilterModal}>
+	<Dialog on:close={closeFilterModal}>
 		<p slot="header">Filter</p>
 
 		<div slot="body" class="grid grid-cols-2 gap-5">
@@ -83,5 +83,5 @@
 			<SecondaryButton on:click={clearFilter}>Clear</SecondaryButton>
 			<PrimaryButton on:click={applyFilter}>Apply</PrimaryButton>
 		</div>
-	</Modal>
+	</Dialog>
 {/if}

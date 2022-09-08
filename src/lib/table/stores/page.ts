@@ -7,16 +7,25 @@ import { writable } from 'svelte/store';
 function create() {
 	const store: Writable<PageState> = writable();
 
-	const { subscribe, set } = store;
+	const { subscribe } = store;
 
 	function init(config: Config) {
 		if (config.pagination.enabled === false) {
 			return;
 		}
 
-		set({
+		store.set({
 			skip: 0,
 			take: config.pagination.size
+		});
+	}
+
+	function set(n: number) {
+		store.update((state) => {
+			return {
+				skip: n * state.take,
+				take: state.take
+			};
 		});
 	}
 

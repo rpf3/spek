@@ -8,10 +8,14 @@
 
 	let disablePrevious = false;
 	let disableNext = false;
+	let pageCount = Math.ceil($repository.total / $page.take);
+	let pageNumber = $page.skip / $page.take;
 
 	const unsubscribe = repository.subscribe((data) => {
 		disablePrevious = $page.skip === 0;
 		disableNext = $page.skip + $page.take >= data.total;
+		pageCount = Math.ceil(data.total / $page.take);
+		pageNumber = $page.skip / $page.take;
 	});
 
 	onDestroy(unsubscribe);
@@ -25,6 +29,16 @@
 	>
 		<Left />
 	</button>
+
+	{#each Array(pageCount) as _, i}
+		<button
+			class="p-1 hover:bg-skin-button-ring-hover disabled:hover:bg-inherit"
+			class:bg-skin-button-ring-hover={i === pageNumber}
+			on:click={() => page.set(i)}
+		>
+			<div class="px-2">{i + 1}</div>
+		</button>
+	{/each}
 
 	<button
 		class="p-1 hover:bg-skin-button-ring-hover disabled:hover:bg-inherit"

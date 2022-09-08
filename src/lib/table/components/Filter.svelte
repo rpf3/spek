@@ -77,7 +77,7 @@
 		</div>
 
 		<div slot="footer" class="flex flex-row gap-3">
-			<Button type={ButtonType.Accent} mode={ButtonMode.Ring} on:click={clearFilter}>Clear</Button>
+			<Button type={ButtonType.Primary} mode={ButtonMode.Ring} on:click={clearFilter}>Clear</Button>
 			<Button type={ButtonType.Primary} mode={ButtonMode.Fill} on:click={applyFilter}>Apply</Button>
 		</div>
 	</Dialog>

@@ -46,10 +46,7 @@
 	}
 
 	const unsubscribe = filter.subscribe(() => {
-		page.set({
-			skip: 0,
-			take: $page.take
-		});
+		page.set(0);
 	});
 
 	onDestroy(unsubscribe);

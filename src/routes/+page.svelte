@@ -6,38 +6,33 @@
 
 	const columns: Column[] = [
 		{
-			key: 'id',
-			header: 'ID',
-			filterable: true,
-			sortable: true
-		},
-		{
-			key: 'userId',
+			key: 'email',
 			header: 'User',
-			filterable: true,
 			slots: {
 				cell: UserCell
 			}
 		},
 		{
-			key: 'title',
-			header: 'Title 1',
+			key: 'email',
+			header: 'Email',
 			filterable: true,
 			size: 3
 		},
 		{
-			key: 'title',
-			header: 'Title 2'
+			key: 'name',
+			header: 'Name',
+			filterable: true,
+			size: 3
 		},
 		{
-			key: 'title',
-			header: 'Title 3',
-			size: 2
+			key: 'body',
+			header: 'Post',
+			size: 5
 		}
 	];
 
 	async function fetchAlbums() {
-		const response = await fetch('https://jsonplaceholder.typicode.com/albums');
+		const response = await fetch('https://jsonplaceholder.typicode.com/comments');
 		const albums = await response.json();
 
 		return albums;

@@ -51,6 +51,10 @@
 			</Cell>
 		{/each}
 	{/each}
+
+	{#if $repository.total === 0}
+		<div class="col-span-full text-center">No results.</div>
+	{/if}
 </div>
 
 {#if mergedConfig.pagination.enabled}

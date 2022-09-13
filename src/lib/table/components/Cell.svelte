@@ -4,6 +4,6 @@
 	export let column: Column;
 </script>
 
-<div class="flex flex-row col-span-{column.size ?? 1}">
+<div class="flex flex-row col-span-{column.size ?? 1} leading-relaxed">
 	<slot />
 </div>

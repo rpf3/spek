@@ -33,7 +33,7 @@
 	<Filter {columns} />
 </div>
 
-<div class="grid grid-cols-{columnCount} gap-y-3">
+<div class="grid grid-cols-{columnCount} gap-3">
 	{#each columns as column}
 		<Cell {column}>
 			<HeaderCell {column} />

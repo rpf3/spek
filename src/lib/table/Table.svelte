@@ -54,7 +54,7 @@
 </div>
 
 {#if mergedConfig.pagination.enabled}
-	<div class="flex justify-end gap-1 mt-3">
+	<div class="flex justify-center mt-6">
 		<Paginator />
 	</div>
 {/if}

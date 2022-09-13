@@ -4,8 +4,8 @@
 	import { SortDirection } from '$lib/table/types';
 	import { sort } from '$lib/table/stores/sort';
 
-	import Ascending from '$lib/icon/Ascending.svelte';
-	import Descending from '$lib/icon/Descending.svelte';
+	import Up from '$lib/icon/Up.svelte';
+	import Down from '$lib/icon/Down.svelte';
 
 	export let column: Column;
 
@@ -18,18 +18,14 @@
 	}
 </script>
 
-<div class="flex items-end gap-1 font-semibold" class:cursor-pointer={column.sortable}>
+<div class="flex items-center gap-1 font-semibold" class:cursor-pointer={column.sortable}>
 	<span class="overflow-hidden" on:click={sortRows}>{column.header}</span>
 
 	{#if $sort?.key === column.key}
 		{#if $sort.direction === SortDirection.Ascending}
-			<div>
-				<Ascending />
-			</div>
+			<Up />
 		{:else if $sort.direction === SortDirection.Descending}
-			<div>
-				<Descending />
-			</div>
+			<Down />
 		{/if}
 	{/if}
 </div>

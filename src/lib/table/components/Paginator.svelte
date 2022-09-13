@@ -98,31 +98,36 @@
 	onDestroy(unsubscribe);
 </script>
 
-<div class="border rounded flex divide-x">
+<div class="flex gap-1">
 	<button
-		class="p-1 hover:bg-skin-button-ring-hover disabled:hover:bg-inherit"
+		class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
 		on:click={page.previous}
 		disabled={disablePrevious}
 	>
-		<Left />
+		<div class="flex justify-center">
+			<Left />
+		</div>
 	</button>
 
 	{#each visiblePageNumbers as n}
 		<button
-			class="p-1 hover:bg-skin-button-ring-hover disabled:hover:bg-inherit"
-			class:bg-skin-button-ring-hover={n === pageNumber}
+			class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
+			class:bg-skin-button-primary={n === pageNumber}
+			class:text-skin-inverted={n === pageNumber}
 			disabled={isNaN(n)}
 			on:click={() => page.set(n)}
 		>
-			<div class="px-2">{isNaN(n) ? '…' : n + 1}</div>
+			<div>{isNaN(n) ? '…' : n + 1}</div>
 		</button>
 	{/each}
 
 	<button
-		class="p-1 hover:bg-skin-button-ring-hover disabled:hover:bg-inherit"
+		class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
 		on:click={page.next}
 		disabled={disableNext}
 	>
-		<Right />
+		<div class="flex justify-center">
+			<Right />
+		</div>
 	</button>
 </div>

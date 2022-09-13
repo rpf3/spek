@@ -100,7 +100,7 @@
 
 <div class="flex gap-1">
 	<button
-		class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
+		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
 		on:click={page.previous}
 		disabled={disablePrevious}
 	>
@@ -111,9 +111,9 @@
 
 	{#each visiblePageNumbers as n}
 		<button
-			class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
-			class:bg-skin-button-primary={n === pageNumber}
-			class:text-skin-inverted={n === pageNumber}
+			class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
+			class:bg-spek-primary-600={n === pageNumber}
+			class:text-spek-inverted={n === pageNumber}
 			disabled={isNaN(n)}
 			on:click={() => page.set(n)}
 		>
@@ -122,7 +122,7 @@
 	{/each}
 
 	<button
-		class="border rounded border-transparent hover:border-skin-button-primary disabled:hover:border-transparent min-w-[2rem] h-8"
+		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
 		on:click={page.next}
 		disabled={disableNext}
 	>

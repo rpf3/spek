@@ -6,8 +6,17 @@
 	:root {
 		--color-text-base: 0 0 0;
 		--color-text-inverted: 255 255 255;
-		--color-button-primary: 8 145 178;
-		--color-button-accent: 178 8 145;
-		--color-button-ring-hover: 241, 245, 249;
+
+		--color-facade: 255 255 255;
+
+		--color-primary-600: 8 145 178;
+		--color-primary-700: 14, 116, 144;
+
+		--color-accent-600: 124, 58, 237;
+		--color-accent-700: 109, 40, 217;
+	}
+
+	.dark {
+		--color-facade: 51 65 85;
 	}
 }

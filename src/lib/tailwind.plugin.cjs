@@ -13,23 +13,27 @@ function withOpacity(variableName) {
 module.exports = plugin(() => {}, {
 	theme: {
 		extend: {
-			textColor: {
-				skin: {
-					base: withOpacity('--color-text-base'),
-					inverted: withOpacity('--color-text-inverted')
+			colors: {
+				spek: {
+					primary: {
+						600: withOpacity('--color-primary-600'),
+						700: withOpacity('--color-primary-700')
+					},
+					accent: {
+						600: withOpacity('--color-accent-600'),
+						700: withOpacity('--color-accent-700')
+					}
 				}
 			},
 			backgroundColor: {
-				skin: {
-					'button-primary': withOpacity('--color-button-primary'),
-					'button-accent': withOpacity('--color-button-accent'),
-					'button-ring-hover': withOpacity('--color-button-ring-hover')
+				spek: {
+					facade: withOpacity('--color-facade')
 				}
 			},
-			borderColor: {
-				skin: {
-					'button-primary': withOpacity('--color-button-primary'),
-					'button-accent': withOpacity('--color-button-accent')
+			textColor: {
+				spek: {
+					base: withOpacity('--color-text-base'),
+					inverted: withOpacity('--color-text-inverted')
 				}
 			}
 		}

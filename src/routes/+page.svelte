@@ -42,7 +42,7 @@
 </script>
 
 {#await promise then albums}
-	<div class="max-w-screen-lg w-1/2 mx-auto my-10">
+	<div class="max-w-screen-lg w-1/2 mx-auto pt-10">
 		<Table {columns} data={albums} />
 	</div>
 {/await}

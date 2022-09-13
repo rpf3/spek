@@ -65,7 +65,7 @@
 		<div slot="body" class="grid grid-cols-2 gap-5">
 			<select
 				bind:value={selectedFilterKey}
-				class="border border-slate-200 rounded px-1 py-1 dark:bg-spek-facade"
+				class="border border-slate-200 rounded px-1 py-1 focus:outline-none dark:bg-spek-facade"
 			>
 				{#each filterableColumns as column}
 					<option value={column.key}>{column.header}</option>
@@ -74,7 +74,7 @@
 
 			<input
 				type="text"
-				class="border border-slate-200 rounded px-2 py-1 dark:bg-spek-facade"
+				class="border border-slate-200 rounded px-2 py-1 focus:outline-none dark:bg-spek-facade"
 				bind:value={selectedFilterValue}
 			/>
 		</div>

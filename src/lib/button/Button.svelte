@@ -14,16 +14,14 @@
 
 <button
 	on:click={dispatchEvent}
-	class="w-full rounded-md border px-4 py-2 focus:outline-none"
+	class="w-full rounded-md border px-4 py-2 focus:outline-none hover:brightness-125"
 	class:bg-transparent={mode === ButtonMode.Ring}
-	class:bg-skin-button-primary={mode === ButtonMode.Fill && type === ButtonType.Primary}
-	class:bg-skin-button-accent={mode === ButtonMode.Fill && type === ButtonType.Accent}
+	class:bg-spek-primary-600={mode === ButtonMode.Fill && type === ButtonType.Primary}
+	class:bg-spek-accent-600={mode === ButtonMode.Fill && type === ButtonType.Accent}
 	class:border-transparent={mode === ButtonMode.Fill}
-	class:border-skin-button-primary={mode === ButtonMode.Ring && type === ButtonType.Primary}
-	class:border-skin-button-accent={mode === ButtonMode.Ring && type === ButtonType.Accent}
-	class:text-skin-inverted={mode === ButtonMode.Fill}
-	class:hover:opacity-75={mode === ButtonMode.Fill}
-	class:hover:bg-skin-button-ring-hover={mode === ButtonMode.Ring}
+	class:border-spek-primary-600={mode === ButtonMode.Ring && type === ButtonType.Primary}
+	class:border-spek-accent-600={mode === ButtonMode.Ring && type === ButtonType.Accent}
+	class:text-spek-inverted={mode === ButtonMode.Fill}
 >
 	<slot />
 </button>

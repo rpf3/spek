@@ -16,9 +16,9 @@
 	<div class="fixed z-10 inset-0">
 		<div class="flex items-center justify-center min-h-full">
 			<div
-				class="relative bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full"
+				class="relative bg-spek-facade rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full"
 			>
-				<div class="flex flex-col bg-white">
+				<div class="flex flex-col bg-spek-facade">
 					<div class="flex flex-row p-3 border-b">
 						<div class="grow text-center font-medium">
 							<slot name="header" />

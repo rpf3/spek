@@ -35,14 +35,16 @@
 		pageNumbers.add(pageNumber + 1);
 
 		// Pad out the first few pages
-		if (pageNumber < 3) {
+		if (pageNumber < 4) {
 			pageNumbers.add(2);
 			pageNumbers.add(3);
 			pageNumbers.add(4);
+			pageNumbers.add(5);
 		}
 
 		// Pad out the last few pages.
-		if (pageNumber > pageCount - 4) {
+		if (pageNumber > pageCount - 5) {
+			pageNumbers.add(pageCount - 6);
 			pageNumbers.add(pageCount - 5);
 			pageNumbers.add(pageCount - 4);
 			pageNumbers.add(pageCount - 3);

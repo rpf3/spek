@@ -7,6 +7,12 @@ type DataCellProps = {
 
 type DataCellComponent = SvelteComponentTyped<DataCellProps, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 
+type HeaderCellProps = {
+	column: Column;
+};
+
+type HeaderCellComponent = SvelteComponentTyped<HeaderCellProps, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+
 export type Column = {
 	key: string;
 	header: string;
@@ -15,6 +21,7 @@ export type Column = {
 	size?: number;
 	slots?: {
 		cell?: ComponentType<DataCellComponent>;
+		header?: ComponentType<HeaderCellComponent>;
 	};
 };
 

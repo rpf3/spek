@@ -8,6 +8,10 @@
 	export let row: DataRow;
 </script>
 
-<div class="overflow-hidden whitespace-nowrap text-ellipsis">
-	{utils.getCellValue(row, column.key)}
-</div>
+{#if column.slots?.cell}
+	<svelte:component this={column.slots.cell} {row} {column} />
+{:else}
+	<div class="overflow-hidden whitespace-nowrap text-ellipsis">
+		{utils.getCellValue(row, column.key)}
+	</div>
+{/if}

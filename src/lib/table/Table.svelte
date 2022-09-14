@@ -43,11 +43,7 @@
 	{#each $repository.rows as row}
 		{#each columns as column}
 			<Cell {column}>
-				{#if column.slots?.cell}
-					<svelte:component this={column.slots.cell} {row} {column} />
-				{:else}
-					<DataCell {row} {column} />
-				{/if}
+				<DataCell {row} {column} />
 			</Cell>
 		{/each}
 	{/each}

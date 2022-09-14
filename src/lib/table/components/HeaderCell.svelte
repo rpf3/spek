@@ -18,14 +18,16 @@
 	}
 </script>
 
-<div class="flex items-center gap-1 font-semibold" class:cursor-pointer={column.sortable}>
-	<div on:click={sortRows}>
-		{#if column.slots?.header}
-			<svelte:component this={column.slots.header} {column} />
-		{:else}
-			<span class="overflow-hidden">{column.header}</span>
-		{/if}
-	</div>
+<div
+	class="flex items-center gap-1 font-semibold"
+	class:cursor-pointer={column.sortable}
+	on:click={sortRows}
+>
+	{#if column.slots?.header}
+		<svelte:component this={column.slots.header} {column} />
+	{:else}
+		<span class="overflow-hidden">{column.header}</span>
+	{/if}
 
 	{#if $sort?.key === column.key}
 		{#if $sort.direction === SortDirection.Ascending}

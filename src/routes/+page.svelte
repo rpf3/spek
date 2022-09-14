@@ -3,13 +3,15 @@
 
 	import Table from '$lib/table/Table.svelte';
 	import UserCell from './_components/UserCell.svelte';
+	import UserHeaderCell from './_components/UserHeaderCell.svelte';
 
 	const columns: Column[] = [
 		{
 			key: 'email',
 			header: 'User',
 			slots: {
-				cell: UserCell
+				cell: UserCell,
+				header: UserHeaderCell
 			}
 		},
 		{

@@ -26,7 +26,6 @@ module.exports = plugin(() => {}, {
 			},
 			textColor: {
 				spek: {
-					base: withOpacity('--color-text-base'),
 					inverted: withOpacity('--color-text-inverted')
 				}
 			}

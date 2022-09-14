@@ -18,6 +18,7 @@
 			key: 'email',
 			header: 'Email',
 			filterable: true,
+			sortable: true,
 			size: 3
 		},
 		{

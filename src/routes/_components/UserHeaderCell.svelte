@@ -3,6 +3,7 @@
 
 	import UserGroupIcon from './UserGroupIcon.svelte';
 
+	// svelte-ignore unused-export-let
 	export let column: Column;
 </script>
 

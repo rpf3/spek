@@ -29,7 +29,7 @@
 		<span class="overflow-hidden">{column.header}</span>
 	{/if}
 
-	{#if $sort?.key === column.key}
+	{#if column.sortable && $sort?.key === column.key}
 		{#if $sort.direction === SortDirection.Ascending}
 			<Up />
 		{:else if $sort.direction === SortDirection.Descending}

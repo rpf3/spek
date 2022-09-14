@@ -15,14 +15,8 @@ module.exports = plugin(() => {}, {
 		extend: {
 			colors: {
 				spek: {
-					primary: {
-						600: withOpacity('--color-primary-600'),
-						700: withOpacity('--color-primary-700')
-					},
-					accent: {
-						600: withOpacity('--color-accent-600'),
-						700: withOpacity('--color-accent-700')
-					}
+					primary: withOpacity('--color-primary'),
+					accent: withOpacity('--color-accent')
 				}
 			},
 			backgroundColor: {

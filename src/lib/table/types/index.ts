@@ -50,9 +50,13 @@ export type SortState = {
 	direction: SortDirection;
 };
 
-export type FilterState = {
+export type FilterValue = {
 	key: string;
 	value: string;
+};
+
+export type FilterState = {
+	filters: FilterValue[];
 };
 
 export type PageState = {

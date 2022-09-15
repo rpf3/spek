@@ -1,4 +1,4 @@
-import type { DataSet } from '$lib/table/types';
+import type { DataSet, FilterValue } from '$lib/table/types';
 import type { FilterState } from '$lib/table/types';
 import type { SortState } from '$lib/table/types';
 import type { DataRow } from '$lib/table/types';
@@ -47,20 +47,30 @@ function sortRows(rows: DataRow[], state: SortState): DataRow[] {
 	return result;
 }
 
-function filterRows(rows: DataRow[], state: FilterState | null): DataRow[] {
-	if (state === undefined || state === null) {
-		return rows;
-	}
-
+function applyFilter(rows: DataRow[], filter: FilterValue): DataRow[] {
 	const result = rows.filter((row) => {
-		const dataItemValue = utils.getCellValue(row, state.key);
+		const dataItemValue = utils.getCellValue(row, filter.key);
 
 		if (dataItemValue === null) {
 			return false;
 		}
 
-		return dataItemValue.toString().includes(state.value);
+		return dataItemValue.toString().includes(filter.value);
 	});
+
+	return result;
+}
+
+function filterRows(rows: DataRow[], state: FilterState): DataRow[] {
+	if (state === undefined || state === null) {
+		return rows;
+	}
+
+	let result = rows;
+
+	for (let i = 0; i < state.filters.length; i++) {
+		result = applyFilter(result, state.filters[i]);
+	}
 
 	return result;
 }
@@ -78,7 +88,7 @@ function pageRows(rows: DataRow[], state: PageState | null): DataRow[] {
 function transform(
 	originalDataSet: DataSet,
 	sortState: SortState,
-	filterState: FilterState | null,
+	filterState: FilterState,
 	pageState: PageState | null
 ) {
 	const filtered = filterRows(originalDataSet.rows, filterState);

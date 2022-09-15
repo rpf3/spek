@@ -28,16 +28,13 @@
 	}
 
 	function applyFilter() {
-		filter.set({
-			key: selectedFilterKey,
-			value: selectedFilterValue
-		});
+		filter.add(selectedFilterKey, selectedFilterValue);
 
 		closeFilterModal();
 	}
 
 	function clearFilter() {
-		filter.set(null);
+		filter.clear();
 
 		selectedFilterKey = filterableColumns.at(0)?.key || '';
 		selectedFilterValue = '';

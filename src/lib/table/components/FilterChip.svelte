@@ -2,6 +2,7 @@
 	import type { Column } from '$lib/table/types';
 
 	import { filter } from '$lib/table/stores/filter';
+	import { createEventDispatcher } from 'svelte';
 
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
@@ -10,10 +11,20 @@
 
 	export let column: Column;
 
+	const dispatch = createEventDispatcher();
+
 	let value: string;
 
 	function handleChange() {
 		filter.update(column.key, value);
+	}
+
+	function removeFilter() {
+		filter.remove(column.key);
+
+		dispatch('remove', {
+			column: column
+		});
 	}
 </script>
 
@@ -26,7 +37,7 @@
 		</button>
 
 		<div slot="content" class="flex gap-3 p-1">
-			<button>
+			<button on:click={removeFilter}>
 				<Trash />
 			</button>
 

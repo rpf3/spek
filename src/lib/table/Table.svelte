@@ -29,7 +29,7 @@
 	page.init(mergedConfig);
 </script>
 
-<div class="flex justify-end mb-3">
+<div class="flex justify-end items-center mb-3">
 	<Filter {columns} />
 </div>
 

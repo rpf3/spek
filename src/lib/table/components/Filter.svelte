@@ -19,6 +19,14 @@
 		potentialFilters = [...potentialFilters, column];
 	}
 
+	function removeFilterChip(event: CustomEvent) {
+		const removed: Column = event.detail.column;
+
+		potentialFilters = potentialFilters.filter((filter) => {
+			return filter.key !== removed.key;
+		});
+	}
+
 	const unsubscribe = filter.subscribe(() => {
 		page.set(0);
 	});
@@ -30,7 +38,7 @@
 	<div class="inline mr-3">
 		<div class="flex gap-3">
 			{#each potentialFilters as column}
-				<FilterChip {column} />
+				<FilterChip {column} on:remove={removeFilterChip} />
 			{/each}
 		</div>
 	</div>

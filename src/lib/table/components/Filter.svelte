@@ -49,7 +49,7 @@
 	}
 
 	function getColumnHeader(key: string): string | undefined {
-		const column = columns.find((col) => col.key === key);
+		const column = filterableColumns.find((col) => col.key === key);
 
 		return column?.header;
 	}

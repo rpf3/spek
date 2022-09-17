@@ -24,6 +24,10 @@
 <Chip>
 	<span class="font-semibold">{column.header}</span>
 
+	{#if value}
+		<span>{value}</span>
+	{/if}
+
 	<Menu>
 		<button slot="toggle">
 			<Down />

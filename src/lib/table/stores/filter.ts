@@ -22,6 +22,18 @@ function create() {
 		});
 	}
 
+	function remove(key: string) {
+		store.update((state) => {
+			const result: FilterState = {
+				filters: state.filters.filter((filter) => {
+					return filter.key !== key;
+				})
+			};
+
+			return result;
+		});
+	}
+
 	function clear() {
 		store.set({
 			filters: []
@@ -31,6 +43,7 @@ function create() {
 	return {
 		subscribe,
 		add,
+		remove,
 		clear
 	};
 }

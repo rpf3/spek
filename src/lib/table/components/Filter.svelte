@@ -9,6 +9,8 @@
 	import Filter from '$lib/icon/Filter.svelte';
 	import Dialog from '$lib/dialog/Dialog.svelte';
 	import Button from '$lib/button/Button.svelte';
+	import Close from '$lib/icon/Close.svelte';
+	import Chip from '$lib/chip/Chip.svelte';
 
 	export let columns: Column[];
 
@@ -25,6 +27,9 @@
 
 	function closeFilterModal() {
 		isModalVisible = false;
+
+		selectedFilterKey = filterableColumns.at(0)?.key || '';
+		selectedFilterValue = '';
 	}
 
 	function applyFilter() {
@@ -36,10 +41,11 @@
 	function clearFilter() {
 		filter.clear();
 
-		selectedFilterKey = filterableColumns.at(0)?.key || '';
-		selectedFilterValue = '';
-
 		closeFilterModal();
+	}
+
+	function removeFilter(key: string) {
+		filter.remove(key);
 	}
 
 	const unsubscribe = filter.subscribe(() => {
@@ -48,6 +54,22 @@
 
 	onDestroy(unsubscribe);
 </script>
+
+{#if $filter.filters.length > 0}
+	<div class="inline mr-3">
+		<div class="flex gap-3">
+			{#each $filter.filters as filter}
+				<Chip>
+					<span class="font-bold">{filter.key}:</span>
+					<span>{filter.value}</span>
+					<button on:click={() => removeFilter(filter.key)}>
+						<Close />
+					</button>
+				</Chip>
+			{/each}
+		</div>
+	</div>
+{/if}
 
 {#if filterableColumns.length > 0}
 	<button on:click={openFilterModal}>

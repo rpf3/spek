@@ -34,6 +34,28 @@ function create() {
 		});
 	}
 
+	function update(key: string, value: string) {
+		store.update((state) => {
+			const existing = state.filters.find((filter) => {
+				return filter.key === key;
+			});
+
+			if (existing !== undefined) {
+				existing.value = value;
+
+				return state;
+			}
+
+			const filter: FilterValue = { key, value };
+
+			const result: FilterState = {
+				filters: [...state.filters, filter]
+			};
+
+			return result;
+		});
+	}
+
 	function clear() {
 		store.set({
 			filters: []
@@ -44,7 +66,8 @@ function create() {
 		subscribe,
 		add,
 		remove,
-		clear
+		clear,
+		update
 	};
 }
 

@@ -48,6 +48,12 @@ function sortRows(rows: DataRow[], state: SortState): DataRow[] {
 }
 
 function applyFilter(rows: DataRow[], filter: FilterValue): DataRow[] {
+	if (filter.value === null) {
+		return rows;
+	}
+
+	const filterValue = filter.value as string;
+
 	const result = rows.filter((row) => {
 		const dataItemValue = utils.getCellValue(row, filter.key);
 
@@ -55,7 +61,7 @@ function applyFilter(rows: DataRow[], filter: FilterValue): DataRow[] {
 			return false;
 		}
 
-		return dataItemValue.toString().includes(filter.value);
+		return dataItemValue.toString().includes(filterValue);
 	});
 
 	return result;

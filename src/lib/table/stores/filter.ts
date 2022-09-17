@@ -34,7 +34,7 @@ function create() {
 		});
 	}
 
-	function update(key: string, value: string) {
+	function update(key: string, value: string | null) {
 		store.update((state) => {
 			const existing = state.filters.find((filter) => {
 				return filter.key === key;

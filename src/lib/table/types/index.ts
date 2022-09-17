@@ -52,7 +52,7 @@ export type SortState = {
 
 export type FilterValue = {
 	key: string;
-	value: string;
+	value: string | null;
 };
 
 export type FilterState = {

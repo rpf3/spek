@@ -13,18 +13,17 @@
 
 	let filterableColumns = columns.filter((column) => column.filterable);
 
-	let potentialFilters: Column[] = [];
+	function getColumn(key: string): Column {
+		const result = filterableColumns.find((filter) => {
+			return filter.key === key;
+		});
 
-	function addFilterChip(column: Column) {
-		potentialFilters = [...potentialFilters, column];
+		// Assume that a result was found.
+		return result as Column;
 	}
 
-	function removeFilterChip(event: CustomEvent) {
-		const removed: Column = event.detail.column;
-
-		potentialFilters = potentialFilters.filter((filter) => {
-			return filter.key !== removed.key;
-		});
+	function addFilterChip(column: Column) {
+		filter.update(column.key, null);
 	}
 
 	const unsubscribe = filter.subscribe(() => {
@@ -34,11 +33,11 @@
 	onDestroy(unsubscribe);
 </script>
 
-{#if potentialFilters.length > 0}
+{#if $filter.filters.length > 0}
 	<div class="inline mr-3">
 		<div class="flex gap-3">
-			{#each potentialFilters as column}
-				<FilterChip {column} on:remove={removeFilterChip} />
+			{#each $filter.filters as filter}
+				<FilterChip column={getColumn(filter.key)} />
 			{/each}
 		</div>
 	</div>

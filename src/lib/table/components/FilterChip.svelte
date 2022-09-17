@@ -2,7 +2,6 @@
 	import type { Column } from '$lib/table/types';
 
 	import { filter } from '$lib/table/stores/filter';
-	import { createEventDispatcher } from 'svelte';
 
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
@@ -10,8 +9,6 @@
 	import Trash from '$lib/icon/Trash.svelte';
 
 	export let column: Column;
-
-	const dispatch = createEventDispatcher();
 
 	let value: string;
 
@@ -21,10 +18,6 @@
 
 	function removeFilter() {
 		filter.remove(column.key);
-
-		dispatch('remove', {
-			column: column
-		});
 	}
 </script>
 

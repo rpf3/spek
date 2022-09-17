@@ -48,6 +48,12 @@
 		filter.remove(key);
 	}
 
+	function getColumnHeader(key: string): string | undefined {
+		const column = columns.find((col) => col.key === key);
+
+		return column?.header;
+	}
+
 	const unsubscribe = filter.subscribe(() => {
 		page.set(0);
 	});
@@ -60,7 +66,7 @@
 		<div class="flex gap-3">
 			{#each $filter.filters as filter}
 				<Chip>
-					<span class="font-bold">{filter.key}:</span>
+					<span class="font-semibold">{getColumnHeader(filter.key)}:</span>
 					<span>{filter.value}</span>
 					<button on:click={() => removeFilter(filter.key)}>
 						<Close />

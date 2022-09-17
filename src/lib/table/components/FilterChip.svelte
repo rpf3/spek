@@ -13,7 +13,7 @@
 	let value: string;
 
 	function handleChange() {
-		filter.add(column.key, value);
+		filter.update(column.key, value);
 	}
 </script>
 

@@ -36,7 +36,7 @@
 {#if $filter.filters.length > 0}
 	<div class="inline mr-3">
 		<div class="flex gap-3">
-			{#each $filter.filters as filter}
+			{#each $filter.filters as filter (filter.key)}
 				<FilterChip column={getColumn(filter.key)} />
 			{/each}
 		</div>

@@ -51,7 +51,7 @@
 				type="text"
 				bind:value
 				on:change={updateFilter}
-				class="text-sm bg-spek-facade border rounded w-36 p-1 pr-6"
+				class="text-sm bg-spek-facade-700 border rounded w-36 p-1 pr-6"
 			/>
 
 			<button class="absolute right-0 flex items-center inset-y-0 pr-1" on:click={clearFilter}>

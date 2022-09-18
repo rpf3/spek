@@ -30,20 +30,6 @@
 		--color-accent-800: 134 25 143;
 		--color-accent-900: 112 26 117;
 
-		/* White */
-		--color-facade-50: 255 255 255;
-		--color-facade-100: 255 255 255;
-		--color-facade-200: 255 255 255;
-		--color-facade-300: 255 255 255;
-		--color-facade-400: 255 255 255;
-		--color-facade-500: 255 255 255;
-		--color-facade-600: 255 255 255;
-		--color-facade-700: 255 255 255;
-		--color-facade-800: 255 255 255;
-		--color-facade-900: 255 255 255;
-	}
-
-	.dark {
 		/* Tailwind Zinc Swatch */
 		--color-facade-50: 250 250 250;
 		--color-facade-100: 244 244 245;

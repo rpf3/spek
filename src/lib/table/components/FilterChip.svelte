@@ -7,17 +7,24 @@
 	import Menu from '$lib/menu/Menu.svelte';
 	import Down from '$lib/icon/Down.svelte';
 	import Trash from '$lib/icon/Trash.svelte';
+	import XCircle from '$lib/icon/XCircle.svelte';
 
 	export let column: Column;
 
 	let value: string;
 
-	function handleChange() {
+	function updateFilter() {
 		filter.update(column.key, value);
 	}
 
 	function removeFilter() {
 		filter.remove(column.key);
+	}
+
+	function clearFilter() {
+		value = '';
+
+		updateFilter();
 	}
 </script>
 
@@ -38,12 +45,18 @@
 				<Trash />
 			</button>
 
-			<input
-				type="text"
-				bind:value
-				on:change={handleChange}
-				class="text-sm bg-spek-facade border rounded w-36 p-1"
-			/>
+			<div class="relative">
+				<input
+					type="text"
+					bind:value
+					on:change={updateFilter}
+					class="text-sm bg-spek-facade border rounded w-36 p-1 pr-6"
+				/>
+
+				<button class="absolute right-0 flex items-center inset-y-0 pr-1" on:click={clearFilter}>
+					<XCircle />
+				</button>
+			</div>
 		</div>
 	</Menu>
 </Chip>

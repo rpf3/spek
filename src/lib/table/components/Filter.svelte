@@ -12,6 +12,7 @@
 	export let columns: Column[];
 
 	let filterableColumns = columns.filter((column) => column.filterable);
+	let availableColumns = filterableColumns;
 
 	function getColumn(key: string): Column {
 		const result = filterableColumns.find((filter) => {
@@ -26,8 +27,14 @@
 		filter.update(column.key, null);
 	}
 
-	const unsubscribe = filter.subscribe(() => {
+	const unsubscribe = filter.subscribe((state) => {
 		page.set(0);
+
+		const filteredKeys = state.filters.map((filter) => filter.key);
+
+		availableColumns = filterableColumns.filter((column) => {
+			return filteredKeys.includes(column.key) === false;
+		});
 	});
 
 	onDestroy(unsubscribe);
@@ -49,12 +56,18 @@
 			<Filter />
 		</button>
 
-		<ul slot="content" class="w-48">
-			{#each filterableColumns as column}
-				<li class="px-3 my-1 cursor-pointer" on:click={() => selectFilter(column)}>
-					{column.header}
-				</li>
-			{/each}
-		</ul>
+		<div slot="content" class="w-48">
+			{#if availableColumns.length > 0}
+				<ul>
+					{#each availableColumns as column}
+						<li class="px-3 my-1 cursor-pointer" on:click={() => selectFilter(column)}>
+							{column.header}
+						</li>
+					{/each}
+				</ul>
+			{:else}
+				<p class="text-center">None available.</p>
+			{/if}
+		</div>
 	</Menu>
 {/if}

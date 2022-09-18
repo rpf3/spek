@@ -28,35 +28,35 @@
 	}
 </script>
 
-<Chip>
-	<span class="font-semibold">{column.header}</span>
+<Menu>
+	<div slot="toggle" class="cursor-pointer">
+		<Chip>
+			<span class="font-semibold">{column.header}</span>
 
-	{#if value}
-		<span class="max-w-[8rem] whitespace-nowrap overflow-hidden text-ellipsis">{value}</span>
-	{/if}
+			{#if value}
+				<span class="max-w-[8rem] whitespace-nowrap overflow-hidden text-ellipsis">{value}</span>
+			{/if}
 
-	<Menu>
-		<button slot="toggle">
 			<Down />
+		</Chip>
+	</div>
+
+	<div slot="content" class="flex gap-3 p-1">
+		<button on:click={removeFilter}>
+			<Trash />
 		</button>
 
-		<div slot="content" class="flex gap-3 p-1">
-			<button on:click={removeFilter}>
-				<Trash />
+		<div class="relative">
+			<input
+				type="text"
+				bind:value
+				on:change={updateFilter}
+				class="text-sm bg-spek-facade border rounded w-36 p-1 pr-6"
+			/>
+
+			<button class="absolute right-0 flex items-center inset-y-0 pr-1" on:click={clearFilter}>
+				<XCircle />
 			</button>
-
-			<div class="relative">
-				<input
-					type="text"
-					bind:value
-					on:change={updateFilter}
-					class="text-sm bg-spek-facade border rounded w-36 p-1 pr-6"
-				/>
-
-				<button class="absolute right-0 flex items-center inset-y-0 pr-1" on:click={clearFilter}>
-					<XCircle />
-				</button>
-			</div>
 		</div>
-	</Menu>
-</Chip>
+	</div>
+</Menu>

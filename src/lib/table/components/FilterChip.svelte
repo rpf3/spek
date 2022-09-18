@@ -25,7 +25,7 @@
 	<span class="font-semibold">{column.header}</span>
 
 	{#if value}
-		<span>{value}</span>
+		<span class="max-w-[8rem] whitespace-nowrap overflow-hidden text-ellipsis">{value}</span>
 	{/if}
 
 	<Menu>

@@ -22,7 +22,7 @@
 		return result as Column;
 	}
 
-	function addFilterChip(column: Column) {
+	function selectFilter(column: Column) {
 		filter.update(column.key, null);
 	}
 
@@ -51,7 +51,7 @@
 
 		<ul slot="content" class="w-48">
 			{#each filterableColumns as column}
-				<li class="px-3 my-1 cursor-pointer" on:click={() => addFilterChip(column)}>
+				<li class="px-3 my-1 cursor-pointer" on:click={() => selectFilter(column)}>
 					{column.header}
 				</li>
 			{/each}

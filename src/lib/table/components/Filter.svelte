@@ -11,6 +11,7 @@
 
 	export let columns: Column[];
 
+	let isMenuVisible = false;
 	let filterableColumns = columns.filter((column) => column.filterable);
 	let availableColumns = filterableColumns;
 
@@ -25,6 +26,7 @@
 
 	function selectFilter(column: Column) {
 		filter.update(column.key, null);
+		isMenuVisible = false;
 	}
 
 	const unsubscribe = filter.subscribe((state) => {
@@ -51,7 +53,7 @@
 {/if}
 
 {#if filterableColumns.length > 0}
-	<Menu>
+	<Menu bind:visible={isMenuVisible}>
 		<button slot="toggle">
 			<Filter />
 		</button>

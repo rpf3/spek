@@ -28,7 +28,7 @@
 	</div>
 
 	<div
-		class="absolute top-full right-0 mt-1 bg-spek-facade border rounded shadow shadow-white p-1"
+		class="absolute top-full right-0 mt-1 bg-spek-facade-700 border rounded shadow shadow-white p-1"
 		class:hidden={visible === false}
 		class:block={visible}
 	>

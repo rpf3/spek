@@ -15,13 +15,42 @@ module.exports = plugin(() => {}, {
 		extend: {
 			colors: {
 				spek: {
-					primary: withOpacity('--color-primary'),
-					accent: withOpacity('--color-accent')
-				}
-			},
-			backgroundColor: {
-				spek: {
-					facade: withOpacity('--color-facade')
+					primary: {
+						50: withOpacity('--color-primary-50'),
+						100: withOpacity('--color-primary-100'),
+						200: withOpacity('--color-primary-200'),
+						300: withOpacity('--color-primary-300'),
+						400: withOpacity('--color-primary-400'),
+						500: withOpacity('--color-primary-500'),
+						600: withOpacity('--color-primary-600'),
+						700: withOpacity('--color-primary-700'),
+						800: withOpacity('--color-primary-800'),
+						900: withOpacity('--color-primary-900')
+					},
+					accent: {
+						50: withOpacity('--color-accent-50'),
+						100: withOpacity('--color-accent-100'),
+						200: withOpacity('--color-accent-200'),
+						300: withOpacity('--color-accent-300'),
+						400: withOpacity('--color-accent-400'),
+						500: withOpacity('--color-accent-500'),
+						600: withOpacity('--color-accent-600'),
+						700: withOpacity('--color-accent-700'),
+						800: withOpacity('--color-accent-800'),
+						900: withOpacity('--color-accent-900')
+					},
+					facade: {
+						50: withOpacity('--color-facade-50'),
+						100: withOpacity('--color-facade-100'),
+						200: withOpacity('--color-facade-200'),
+						300: withOpacity('--color-facade-300'),
+						400: withOpacity('--color-facade-400'),
+						500: withOpacity('--color-facade-500'),
+						600: withOpacity('--color-facade-600'),
+						700: withOpacity('--color-facade-700'),
+						800: withOpacity('--color-facade-800'),
+						900: withOpacity('--color-facade-900')
+					}
 				}
 			},
 			textColor: {

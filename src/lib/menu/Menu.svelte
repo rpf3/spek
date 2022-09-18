@@ -1,5 +1,6 @@
 <script lang="ts">
-	let visible = false;
+	export let visible = false;
+
 	let menu: HTMLElement;
 
 	function handleClick(event: Event) {

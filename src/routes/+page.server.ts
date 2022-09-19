@@ -9,6 +9,7 @@ function generateTableData() {
 		data.push({
 			name: faker.name.fullName(),
 			email: faker.internet.email(),
+			birthdate: faker.date.birthdate(),
 			bio: faker.lorem.sentences()
 		});
 	}

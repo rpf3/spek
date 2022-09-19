@@ -32,6 +32,12 @@
 			size: 2
 		},
 		{
+			key: 'birthdate',
+			header: 'Birth Date',
+			filterable: true,
+			size: 1
+		},
+		{
 			key: 'bio',
 			header: 'Bio',
 			size: 5

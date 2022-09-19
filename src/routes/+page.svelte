@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
+	import type { PageData } from './$types';
 
 	import { ColorMode, FillMode } from '$lib/types';
 
@@ -11,10 +12,13 @@
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
 
+	export let data: PageData;
+
 	const columns: Column[] = [
 		{
-			key: 'email',
-			header: 'User',
+			key: 'name',
+			header: 'Name',
+			size: 2,
 			slots: {
 				cell: UserCell,
 				header: UserHeaderCell
@@ -25,29 +29,14 @@
 			header: 'Email',
 			filterable: true,
 			sortable: true,
-			size: 3
+			size: 2
 		},
 		{
-			key: 'name',
-			header: 'Name',
-			filterable: true,
-			size: 3
-		},
-		{
-			key: 'body',
-			header: 'Post',
+			key: 'bio',
+			header: 'Bio',
 			size: 5
 		}
 	];
-
-	async function fetchAlbums() {
-		const response = await fetch('https://jsonplaceholder.typicode.com/comments');
-		const albums = await response.json();
-
-		return albums;
-	}
-
-	let promise = fetchAlbums();
 
 	let visible = false;
 </script>
@@ -56,9 +45,7 @@
 	<section>
 		<h1 class="text-2xl mb-4">Data Table</h1>
 
-		{#await promise then albums}
-			<Table {columns} data={albums} />
-		{/await}
+		<Table {columns} data={data.data} />
 	</section>
 
 	<section>

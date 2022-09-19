@@ -1,6 +1,7 @@
 import type { DataRow } from '$lib/table/types';
+import type { DataItemValue } from '$lib/table/types';
 
-function getCellValue(row: DataRow, key: string): string | number | Date | null {
+function getCellValue(row: DataRow, key: string): DataItemValue | null {
 	const dataItem = row.items.find((item) => item.key === key);
 
 	if (dataItem === undefined) {

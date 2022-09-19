@@ -2,10 +2,11 @@ import type { DataItem } from '$lib/table/types';
 import type { DataRow } from '$lib/table/types';
 import type { DataSet } from '$lib/table/types';
 import type { Writable } from 'svelte/store';
+import type { DataItemValue } from '$lib/table/types';
 
 import { writable } from 'svelte/store';
 
-function sanitizeValue(value: unknown): string | number | Date {
+function sanitizeValue(value: unknown): DataItemValue {
 	if (typeof value === 'string' || typeof value === 'number' || value instanceof Date) {
 		return value;
 	}

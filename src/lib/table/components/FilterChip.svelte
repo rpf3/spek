@@ -52,7 +52,7 @@
 				type="text"
 				bind:value
 				on:change={updateFilter}
-				class="text-sm bg-spek-facade-50 dark:bg-spek-facade-600 border rounded w-36 p-1 pr-6"
+				class="text-sm bg-spek-facade-50 dark:bg-spek-facade-500 border dark:border-transparent rounded w-36 p-1 pr-6 focus:outline-spek-primary-400 outline-none outline-offset-0"
 			/>
 
 			<button

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
-	import { ButtonMode, ButtonType } from '$lib/button/types';
+
+	import { ColorMode, FillMode } from '$lib/types';
 
 	import Table from '$lib/table/Table.svelte';
 	import UserCell from './_components/UserCell.svelte';
@@ -65,19 +66,19 @@
 
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
-				<Button mode={ButtonMode.Fill} type={ButtonType.Primary}>spek</Button>
+				<Button fill={FillMode.Fill} color={ColorMode.Primary}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button mode={ButtonMode.Ring} type={ButtonType.Primary}>spek</Button>
+				<Button fill={FillMode.Ring} color={ColorMode.Primary}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button mode={ButtonMode.Fill} type={ButtonType.Accent}>spek</Button>
+				<Button fill={FillMode.Fill} color={ColorMode.Accent}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button mode={ButtonMode.Ring} type={ButtonType.Accent}>spek</Button>
+				<Button fill={FillMode.Ring} color={ColorMode.Accent}>spek</Button>
 			</div>
 		</div>
 	</section>
@@ -86,7 +87,7 @@
 		<h1 class="text-2xl mb-4">Dialog</h1>
 
 		<div class="w-36">
-			<Button mode={ButtonMode.Fill} type={ButtonType.Primary} on:click={() => (visible = true)}
+			<Button fill={FillMode.Fill} color={ColorMode.Primary} on:click={() => (visible = true)}
 				>open</Button
 			>
 		</div>
@@ -105,10 +106,8 @@
 
 				<div slot="footer" class="flex justify-end">
 					<div class="w-24">
-						<Button
-							mode={ButtonMode.Fill}
-							type={ButtonType.Accent}
-							on:click={() => (visible = false)}>ok</Button
+						<Button fill={FillMode.Fill} color={ColorMode.Accent} on:click={() => (visible = false)}
+							>ok</Button
 						>
 					</div>
 				</div>
@@ -129,7 +128,7 @@
 
 		<div class="flex">
 			<Menu>
-				<Button slot="toggle" mode={ButtonMode.Ring} type={ButtonType.Accent}>open</Button>
+				<Button slot="toggle" fill={FillMode.Ring} color={ColorMode.Accent}>open</Button>
 
 				<div slot="content" class="w-32">
 					Bacon ipsum dolor amet lorem bresaola sunt culpa in tri-tip.

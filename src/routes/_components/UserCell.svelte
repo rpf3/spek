@@ -17,3 +17,5 @@
 <button on:click={handleClick}>
 	<UserIcon />
 </button>
+
+<span class="ml-2">{utils.getCellValue(row, column.key)}</span>

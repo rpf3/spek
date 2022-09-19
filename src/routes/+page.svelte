@@ -118,8 +118,14 @@
 	<section>
 		<h1 class="text-2xl mb-4">Chip</h1>
 
-		<div class="flex">
-			<Chip>spek</Chip>
+		<div class="flex flex-row gap-4">
+			<Chip fill={FillMode.Fill} color={ColorMode.Primary}>spek</Chip>
+
+			<Chip fill={FillMode.Ring} color={ColorMode.Primary}>spek</Chip>
+
+			<Chip fill={FillMode.Fill} color={ColorMode.Accent}>spek</Chip>
+
+			<Chip fill={FillMode.Ring} color={ColorMode.Accent}>spek</Chip>
 		</div>
 	</section>
 

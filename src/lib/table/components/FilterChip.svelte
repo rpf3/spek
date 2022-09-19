@@ -43,7 +43,7 @@
 	</div>
 
 	<div slot="content" class="flex gap-3 p-1">
-		<button on:click={removeFilter}>
+		<button class="text-spek-facade-400 dark:text-inherit" on:click={removeFilter}>
 			<Trash />
 		</button>
 
@@ -55,7 +55,10 @@
 				class="text-sm bg-spek-facade-50 dark:bg-spek-facade-600 border rounded w-36 p-1 pr-6"
 			/>
 
-			<button class="absolute right-0 flex items-center inset-y-0 pr-1" on:click={clearFilter}>
+			<button
+				class="absolute right-0 flex items-center inset-y-0 pr-1 text-spek-facade-400 dark:text-inherit"
+				on:click={clearFilter}
+			>
 				<XCircle />
 			</button>
 		</div>

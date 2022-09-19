@@ -1,9 +1,12 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
+	import { ButtonMode, ButtonType } from '$lib/button/types';
 
 	import Table from '$lib/table/Table.svelte';
 	import UserCell from './_components/UserCell.svelte';
 	import UserHeaderCell from './_components/UserHeaderCell.svelte';
+	import Button from '$lib/button/Button.svelte';
+	import Dialog from '$lib/dialog/Dialog.svelte';
 
 	const columns: Column[] = [
 		{
@@ -42,10 +45,72 @@
 	}
 
 	let promise = fetchAlbums();
+
+	let visible = false;
 </script>
 
-{#await promise then albums}
-	<div class="max-w-screen-lg w-1/2 mx-auto pt-10">
-		<Table {columns} data={albums} />
-	</div>
-{/await}
+<div class="flex flex-col gap-8">
+	<section>
+		<h1 class="text-2xl mb-4">Data Table</h1>
+
+		{#await promise then albums}
+			<Table {columns} data={albums} />
+		{/await}
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Button</h1>
+
+		<div class="flex flex-row gap-4">
+			<div class="w-36">
+				<Button mode={ButtonMode.Fill} type={ButtonType.Primary}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button mode={ButtonMode.Ring} type={ButtonType.Primary}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button mode={ButtonMode.Fill} type={ButtonType.Accent}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button mode={ButtonMode.Ring} type={ButtonType.Accent}>spek</Button>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Dialog</h1>
+
+		<div class="w-36">
+			<Button mode={ButtonMode.Fill} type={ButtonType.Primary} on:click={() => (visible = true)}
+				>open</Button
+			>
+		</div>
+
+		{#if visible}
+			<Dialog on:close={() => (visible = false)}>
+				<p slot="header">spek</p>
+
+				<div slot="body">
+					<p>
+						Bacon ipsum dolor amet occaecat non boudin proident meatball duis laboris rump. Pork
+						occaecat ad flank consectetur aute velit tail. Ball tip esse short loin do. Brisket
+						hamburger t-bone shankle buffalo in.
+					</p>
+				</div>
+
+				<div slot="footer" class="flex justify-end">
+					<div class="w-24">
+						<Button
+							mode={ButtonMode.Fill}
+							type={ButtonType.Accent}
+							on:click={() => (visible = false)}>ok</Button
+						>
+					</div>
+				</div>
+			</Dialog>
+		{/if}
+	</section>
+</div>

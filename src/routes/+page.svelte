@@ -7,6 +7,8 @@
 	import UserHeaderCell from './_components/UserHeaderCell.svelte';
 	import Button from '$lib/button/Button.svelte';
 	import Dialog from '$lib/dialog/Dialog.svelte';
+	import Chip from '$lib/chip/Chip.svelte';
+	import Menu from '$lib/menu/Menu.svelte';
 
 	const columns: Column[] = [
 		{
@@ -112,5 +114,27 @@
 				</div>
 			</Dialog>
 		{/if}
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Chip</h1>
+
+		<div class="flex">
+			<Chip>spek</Chip>
+		</div>
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Menu</h1>
+
+		<div class="flex">
+			<Menu>
+				<Button slot="toggle" mode={ButtonMode.Ring} type={ButtonType.Accent}>open</Button>
+
+				<div slot="content" class="w-32">
+					Bacon ipsum dolor amet lorem bresaola sunt culpa in tri-tip.
+				</div>
+			</Menu>
+		</div>
 	</section>
 </div>

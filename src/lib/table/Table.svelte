@@ -10,7 +10,7 @@
 	import Cell from '$lib/table/components/Cell.svelte';
 	import DataCell from '$lib/table/components/DataCell.svelte';
 	import HeaderCell from '$lib/table/components/HeaderCell.svelte';
-	import Paginator from '$lib/table/components/Paginator.svelte';
+	import Paginator from '$lib/paginator/Paginator.svelte';
 	import Filter from '$lib/table/components/Filter.svelte';
 
 	export let columns: Column[];
@@ -27,6 +27,18 @@
 
 	dataset.init(data);
 	page.init(mergedConfig);
+
+	function previousHandler() {
+		page.previous();
+	}
+
+	function netxtHandler() {
+		page.next();
+	}
+
+	function gotoHandler(event: CustomEvent) {
+		page.set(event.detail);
+	}
 </script>
 
 <div class="flex justify-end items-center mb-3">
@@ -55,6 +67,12 @@
 
 {#if mergedConfig.pagination.enabled}
 	<div class="flex justify-center mt-6">
-		<Paginator />
+		<Paginator
+			count={Math.ceil($repository.total / $page.take)}
+			current={$page.skip / $page.take}
+			on:previous={previousHandler}
+			on:next={netxtHandler}
+			on:goto={gotoHandler}
+		/>
 	</div>
 {/if}

@@ -11,6 +11,7 @@
 	import Dialog from '$lib/dialog/Dialog.svelte';
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
+	import Paginator from '$lib/paginator/Paginator.svelte';
 
 	export let data: PageData;
 
@@ -45,6 +46,8 @@
 	];
 
 	let visible = false;
+
+	let paginatorCurrentPage = 0;
 </script>
 
 <div class="flex flex-col gap-8">
@@ -74,6 +77,18 @@
 				<Button fill={FillMode.Ring} color={ColorMode.Accent}>spek</Button>
 			</div>
 		</div>
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Paginator</h1>
+
+		<Paginator
+			count={20}
+			current={paginatorCurrentPage}
+			on:goto={(e) => (paginatorCurrentPage = e.detail)}
+			on:next={() => paginatorCurrentPage++}
+			on:previous={() => paginatorCurrentPage--}
+		/>
 	</section>
 
 	<section>

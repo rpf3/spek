@@ -6,6 +6,11 @@
 		"name": "Richard P. Field III",
 		"url": "https://rpf3.io"
 	},
+	"keywords": [
+		"svelte",
+		"tailwind",
+		"typescript"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

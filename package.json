@@ -1,6 +1,11 @@
 {
-	"name": "sveltable",
-	"version": "0.0.1",
+	"name": "@rpf3/spek",
+	"version": "0.1.0",
+	"description": "An opinionated Svelte component library.",
+	"author": {
+		"name": "Richard P. Field III",
+		"url": "https://rpf3.io"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

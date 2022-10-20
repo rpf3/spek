@@ -69,7 +69,7 @@
 	<div class="flex justify-center mt-6">
 		<Paginator
 			count={Math.ceil($repository.total / $page.take)}
-			current={$page.skip / $page.take}
+			current={$page.number}
 			on:previous={previousHandler}
 			on:next={netxtHandler}
 			on:goto={gotoHandler}

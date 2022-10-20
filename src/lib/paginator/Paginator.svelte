@@ -18,11 +18,11 @@
 		const pageNumbers = new Set<number>();
 
 		// Display the first and last two pages.
-		pageNumbers.add(0);
 		pageNumbers.add(1);
+		pageNumbers.add(2);
 
-		pageNumbers.add(count - 2);
 		pageNumbers.add(count - 1);
+		pageNumbers.add(count);
 
 		// Display the surrounding two pages.
 		pageNumbers.add(current - 1);
@@ -30,19 +30,19 @@
 		pageNumbers.add(current + 1);
 
 		// Pad out the first few pages
-		if (current < 4) {
-			pageNumbers.add(2);
+		if (current < 5) {
 			pageNumbers.add(3);
 			pageNumbers.add(4);
 			pageNumbers.add(5);
+			pageNumbers.add(6);
 		}
 
 		// Pad out the last few pages.
-		if (current > count - 5) {
-			pageNumbers.add(count - 6);
+		if (current > count - 4) {
 			pageNumbers.add(count - 5);
 			pageNumbers.add(count - 4);
 			pageNumbers.add(count - 3);
+			pageNumbers.add(count - 2);
 		}
 
 		return Array.from(pageNumbers);
@@ -51,7 +51,7 @@
 	function truncatePageNumbers(pageNumbers: number[]): number[] {
 		const truncatedPageNumbers: number[] = [];
 
-		let n = 0;
+		let n = 1;
 
 		for (var i = 0; i < pageNumbers.length; i++) {
 			const m = pageNumbers[i];
@@ -72,7 +72,7 @@
 		const pageNumbers = getVisiblePageNumbers(count, current);
 
 		const validPageNumbers = pageNumbers.filter((n) => {
-			return n > -1 && n < count;
+			return n > 0 && n <= count;
 		});
 
 		const orderedPageNumbers = validPageNumbers.sort((n, m) => n - m);
@@ -94,7 +94,7 @@
 		dispatch('goto', pageNumber);
 	}
 
-	$: disablePrevious = current === 0;
+	$: disablePrevious = current === 1;
 	$: disableNext = current === count;
 	$: visiblePageNumbers = getPageNumbers(count, current);
 </script>
@@ -118,7 +118,7 @@
 			disabled={isNaN(n)}
 			on:click={() => gotoHandler(n)}
 		>
-			<div>{isNaN(n) ? '…' : n + 1}</div>
+			<div>{isNaN(n) ? '…' : n}</div>
 		</button>
 	{/each}
 

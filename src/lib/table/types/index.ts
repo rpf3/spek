@@ -64,6 +64,7 @@ export type FilterState = {
 export type PageState = {
 	skip: number;
 	take: number;
+	number: number;
 };
 
 export type PaginationConfig = {

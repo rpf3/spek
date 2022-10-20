@@ -47,7 +47,7 @@
 
 	let visible = false;
 
-	let paginatorCurrentPage = 0;
+	let paginatorCurrentPage = 1;
 </script>
 
 <div class="flex flex-col gap-8">

@@ -16,15 +16,17 @@ function create() {
 
 		store.set({
 			skip: 0,
-			take: config.pagination.size
+			take: config.pagination.size,
+			number: 1
 		});
 	}
 
 	function set(n: number) {
 		store.update((state) => {
 			return {
-				skip: n * state.take,
-				take: state.take
+				skip: (n - 1) * state.take,
+				take: state.take,
+				number: n
 			};
 		});
 	}
@@ -33,7 +35,8 @@ function create() {
 		store.update((state) => {
 			return {
 				skip: state.skip - state.take,
-				take: state.take
+				take: state.take,
+				number: state.number - 1
 			};
 		});
 	}
@@ -42,7 +45,8 @@ function create() {
 		store.update((state) => {
 			return {
 				skip: state.skip + state.take,
-				take: state.take
+				take: state.take,
+				number: state.number + 1
 			};
 		});
 	}

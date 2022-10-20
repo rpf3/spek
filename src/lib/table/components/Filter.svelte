@@ -30,7 +30,7 @@
 	}
 
 	const unsubscribe = filter.subscribe((state) => {
-		page.set(0);
+		page.set(1);
 
 		const filteredKeys = state.filters.map((filter) => filter.key);
 

@@ -24,7 +24,7 @@
 							<slot name="header" />
 						</div>
 
-						<button on:click={dispatchCloseEvent}>
+						<button type="button" on:click={dispatchCloseEvent}>
 							<Close />
 						</button>
 					</div>

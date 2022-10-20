@@ -13,6 +13,7 @@
 </script>
 
 <button
+	type="button"
 	on:click={dispatchEvent}
 	class="w-full rounded-md border px-4 py-2 focus:outline-none"
 	class:bg-transparent={fill === FillMode.Ring}

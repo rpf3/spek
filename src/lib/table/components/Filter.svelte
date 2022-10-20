@@ -54,7 +54,7 @@
 
 {#if filterableColumns.length > 0}
 	<Menu bind:visible={isMenuVisible}>
-		<button slot="toggle">
+		<button type="button" slot="toggle">
 			<Filter />
 		</button>
 

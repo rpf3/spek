@@ -43,7 +43,7 @@
 	</div>
 
 	<div slot="content" class="flex gap-3 p-1">
-		<button class="text-spek-facade-400 dark:text-inherit" on:click={removeFilter}>
+		<button type="button" class="text-spek-facade-400 dark:text-inherit" on:click={removeFilter}>
 			<Trash />
 		</button>
 
@@ -56,6 +56,7 @@
 			/>
 
 			<button
+				type="button"
 				class="absolute right-0 flex items-center inset-y-0 pr-1 text-spek-facade-400 dark:text-inherit"
 				on:click={clearFilter}
 			>

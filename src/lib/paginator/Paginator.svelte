@@ -102,7 +102,7 @@
 <div class="flex gap-1">
 	<button
 		type="button"
-		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
+		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8 disabled:opacity-50"
 		on:click={previousHandler}
 		disabled={disablePrevious}
 	>
@@ -126,7 +126,7 @@
 
 	<button
 		type="button"
-		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
+		class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8 disabled:opacity-50"
 		on:click={nextHandler}
 		disabled={disableNext}
 	>

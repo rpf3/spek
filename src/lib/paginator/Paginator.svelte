@@ -114,7 +114,7 @@
 	{#each visiblePageNumbers as n}
 		<button
 			type="button"
-			class="border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
+			class="hidden sm:block border rounded border-transparent hover:border-spek-primary-600 disabled:hover:border-transparent min-w-[2rem] h-8"
 			class:bg-spek-primary-600={n === current}
 			class:text-spek-inverted={n === current}
 			disabled={isNaN(n)}

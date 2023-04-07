@@ -52,5 +52,11 @@
 	"type": "module",
 	"peerDependencies": {
 		"tailwindcss": "^3.0"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
 	}
 }

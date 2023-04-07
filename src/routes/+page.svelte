@@ -60,6 +60,8 @@
 	<section>
 		<h1 class="text-2xl mb-4">Button</h1>
 
+		<h2 class="text-xl my-4">Enabled</h2>
+
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
 				<Button fill={FillMode.Fill} color={ColorMode.Primary}>spek</Button>
@@ -75,6 +77,26 @@
 
 			<div class="w-36">
 				<Button fill={FillMode.Ring} color={ColorMode.Accent}>spek</Button>
+			</div>
+		</div>
+
+		<h2 class="text-xl my-4">Disabled</h2>
+
+		<div class="flex flex-row gap-4">
+			<div class="w-36">
+				<Button fill={FillMode.Fill} color={ColorMode.Primary} disabled={true}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button fill={FillMode.Ring} color={ColorMode.Primary} disabled={true}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button fill={FillMode.Fill} color={ColorMode.Accent} disabled={true}>spek</Button>
+			</div>
+
+			<div class="w-36">
+				<Button fill={FillMode.Ring} color={ColorMode.Accent} disabled={true}>spek</Button>
 			</div>
 		</div>
 	</section>

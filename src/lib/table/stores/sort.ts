@@ -1,19 +1,20 @@
+import type { SortDirection } from '$lib/table/types';
 import type { SortState } from '$lib/table/types';
 import type { Writable } from 'svelte/store';
 
-import { SortDirection } from '$lib/table/types';
+import { SORT_DIRECTION } from '$lib/table/types';
 import { writable } from 'svelte/store';
 
 function changeSortDirection(current: SortDirection) {
-	if (current === SortDirection.None) {
-		return SortDirection.Ascending;
+	if (current === SORT_DIRECTION.NONE) {
+		return SORT_DIRECTION.ASCENDING;
 	}
 
-	if (current === SortDirection.Ascending) {
-		return SortDirection.Descending;
+	if (current === SORT_DIRECTION.ASCENDING) {
+		return SORT_DIRECTION.DESCENDING;
 	}
 
-	return SortDirection.None;
+	return SORT_DIRECTION.NONE;
 }
 
 function create() {
@@ -32,7 +33,7 @@ function create() {
 
 			return {
 				key: key,
-				direction: SortDirection.Ascending
+				direction: SORT_DIRECTION.ASCENDING
 			};
 		});
 	}

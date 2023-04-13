@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
 
-	import { SortDirection } from '$lib/table/types';
+	import { SORT_DIRECTION } from '$lib/table/types';
 	import { sort } from '$lib/table/stores/sort';
 
 	import Up from '$lib/icon/Up.svelte';
@@ -30,9 +30,9 @@
 	{/if}
 
 	{#if column.sortable && $sort?.key === column.key}
-		{#if $sort.direction === SortDirection.Ascending}
+		{#if $sort.direction === SORT_DIRECTION.ASCENDING}
 			<Up />
-		{:else if $sort.direction === SortDirection.Descending}
+		{:else if $sort.direction === SORT_DIRECTION.DESCENDING}
 			<Down />
 		{/if}
 	{/if}

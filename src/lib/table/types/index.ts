@@ -41,11 +41,15 @@ export type DataSet = {
 	total: number;
 };
 
-export enum SortDirection {
-	Ascending,
-	Descending,
-	None
-}
+type ObjectValues<T> = T[keyof T];
+
+export const SORT_DIRECTION = {
+	ASCENDING: 'Ascending',
+	DESCENDING: 'Descending',
+	NONE: 'None'
+} as const;
+
+export type SortDirection = ObjectValues<typeof SORT_DIRECTION>;
 
 export type SortState = {
 	key: string;

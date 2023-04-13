@@ -2,7 +2,7 @@
 	import type { Column } from '$lib/table/types';
 	import type { PageData } from './$types';
 
-	import { ColorMode, FillMode } from '$lib/types';
+	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
 	import Table from '$lib/table/Table.svelte';
 	import UserCell from './_components/UserCell.svelte';
@@ -64,19 +64,19 @@
 
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
-				<Button fill={FillMode.Fill} color={ColorMode.Primary}>spek</Button>
+				<Button fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Ring} color={ColorMode.Primary}>spek</Button>
+				<Button fill={FILL_MODE.RING} color={COLOR_MODE.PRIMARY}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Fill} color={ColorMode.Accent}>spek</Button>
+				<Button fill={FILL_MODE.FILL} color={COLOR_MODE.ACCENT}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Ring} color={ColorMode.Accent}>spek</Button>
+				<Button fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>spek</Button>
 			</div>
 		</div>
 
@@ -84,19 +84,19 @@
 
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
-				<Button fill={FillMode.Fill} color={ColorMode.Primary} disabled={true}>spek</Button>
+				<Button fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY} disabled={true}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Ring} color={ColorMode.Primary} disabled={true}>spek</Button>
+				<Button fill={FILL_MODE.RING} color={COLOR_MODE.PRIMARY} disabled={true}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Fill} color={ColorMode.Accent} disabled={true}>spek</Button>
+				<Button fill={FILL_MODE.FILL} color={COLOR_MODE.ACCENT} disabled={true}>spek</Button>
 			</div>
 
 			<div class="w-36">
-				<Button fill={FillMode.Ring} color={ColorMode.Accent} disabled={true}>spek</Button>
+				<Button fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT} disabled={true}>spek</Button>
 			</div>
 		</div>
 	</section>
@@ -117,7 +117,7 @@
 		<h1 class="text-2xl mb-4">Dialog</h1>
 
 		<div class="w-36">
-			<Button fill={FillMode.Fill} color={ColorMode.Primary} on:click={() => (visible = true)}
+			<Button fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY} on:click={() => (visible = true)}
 				>open</Button
 			>
 		</div>
@@ -136,8 +136,10 @@
 
 				<div slot="footer" class="flex justify-end">
 					<div class="w-24">
-						<Button fill={FillMode.Fill} color={ColorMode.Accent} on:click={() => (visible = false)}
-							>ok</Button
+						<Button
+							fill={FILL_MODE.FILL}
+							color={COLOR_MODE.ACCENT}
+							on:click={() => (visible = false)}>ok</Button
 						>
 					</div>
 				</div>
@@ -149,13 +151,13 @@
 		<h1 class="text-2xl mb-4">Chip</h1>
 
 		<div class="flex flex-row gap-4">
-			<Chip fill={FillMode.Fill} color={ColorMode.Primary}>spek</Chip>
+			<Chip fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY}>spek</Chip>
 
-			<Chip fill={FillMode.Ring} color={ColorMode.Primary}>spek</Chip>
+			<Chip fill={FILL_MODE.RING} color={COLOR_MODE.PRIMARY}>spek</Chip>
 
-			<Chip fill={FillMode.Fill} color={ColorMode.Accent}>spek</Chip>
+			<Chip fill={FILL_MODE.FILL} color={COLOR_MODE.ACCENT}>spek</Chip>
 
-			<Chip fill={FillMode.Ring} color={ColorMode.Accent}>spek</Chip>
+			<Chip fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>spek</Chip>
 		</div>
 	</section>
 
@@ -164,7 +166,7 @@
 
 		<div class="flex">
 			<Menu>
-				<Button slot="toggle" fill={FillMode.Ring} color={ColorMode.Accent}>open</Button>
+				<Button slot="toggle" fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>open</Button>
 
 				<div slot="content" class="w-32">
 					Bacon ipsum dolor amet lorem bresaola sunt culpa in tri-tip.

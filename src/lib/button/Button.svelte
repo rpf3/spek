@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { ColorMode, FillMode } from '$lib/types';
+	import type { ColorMode, FillMode } from '$lib/types';
+
+	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 
 	export let color: ColorMode;
@@ -18,25 +20,25 @@
 	type="button"
 	on:click={dispatchEvent}
 	class="w-full rounded-md border px-4 py-2 focus:outline-none"
-	class:bg-transparent={fill === FillMode.Ring}
-	class:bg-spek-primary-600={fill === FillMode.Fill && color === ColorMode.Primary}
-	class:hover:bg-spek-primary-500={fill === FillMode.Fill &&
-		color === ColorMode.Primary &&
+	class:bg-transparent={fill === FILL_MODE.RING}
+	class:bg-spek-primary-600={fill === FILL_MODE.FILL && color === COLOR_MODE.PRIMARY}
+	class:hover:bg-spek-primary-500={fill === FILL_MODE.FILL &&
+		color === COLOR_MODE.PRIMARY &&
 		disabled === false}
-	class:bg-spek-accent-600={fill === FillMode.Fill && color === ColorMode.Accent}
-	class:hover:bg-spek-accent-500={fill === FillMode.Fill &&
-		color === ColorMode.Accent &&
+	class:bg-spek-accent-600={fill === FILL_MODE.FILL && color === COLOR_MODE.ACCENT}
+	class:hover:bg-spek-accent-500={fill === FILL_MODE.FILL &&
+		color === COLOR_MODE.ACCENT &&
 		disabled === false}
-	class:border-transparent={fill === FillMode.Fill}
-	class:border-spek-primary-600={fill === FillMode.Ring && color === ColorMode.Primary}
-	class:hover:border-spek-primary-500={fill === FillMode.Ring &&
-		color === ColorMode.Primary &&
+	class:border-transparent={fill === FILL_MODE.FILL}
+	class:border-spek-primary-600={fill === FILL_MODE.RING && color === COLOR_MODE.PRIMARY}
+	class:hover:border-spek-primary-500={fill === FILL_MODE.RING &&
+		color === COLOR_MODE.PRIMARY &&
 		disabled === false}
-	class:border-spek-accent-600={fill === FillMode.Ring && color === ColorMode.Accent}
-	class:hover:border-spek-accent-500={fill === FillMode.Ring &&
-		color === ColorMode.Accent &&
+	class:border-spek-accent-600={fill === FILL_MODE.RING && color === COLOR_MODE.ACCENT}
+	class:hover:border-spek-accent-500={fill === FILL_MODE.RING &&
+		color === COLOR_MODE.ACCENT &&
 		disabled === false}
-	class:text-spek-inverted={fill === FillMode.Fill}
+	class:text-spek-inverted={fill === FILL_MODE.FILL}
 	class:cursor-not-allowed={disabled === true}
 >
 	<slot />

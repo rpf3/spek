@@ -9,7 +9,7 @@ import { dataset } from '$lib/table/stores/dataset';
 import { filter } from '$lib/table/stores/filter';
 import { sort } from '$lib/table/stores/sort';
 import { page } from '$lib/table/stores/page';
-import { SortDirection } from '$lib/table/types';
+import { SORT_DIRECTION } from '$lib/table/types';
 import utils from '$lib/table/utils';
 
 function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
@@ -32,12 +32,12 @@ function rowComparator(row1: DataRow, row2: DataRow, key: string): number {
 }
 
 function sortRows(rows: DataRow[], state: SortState): DataRow[] {
-	if (state === undefined || state === null || state.direction === SortDirection.None) {
+	if (state === undefined || state === null || state.direction === SORT_DIRECTION.NONE) {
 		return rows;
 	}
 
 	const result = [...rows].sort((row1: DataRow, row2: DataRow) => {
-		if (state.direction === SortDirection.Ascending) {
+		if (state.direction === SORT_DIRECTION.ASCENDING) {
 			return rowComparator(row1, row2, state.key);
 		}
 

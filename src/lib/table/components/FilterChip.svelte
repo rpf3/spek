@@ -2,7 +2,7 @@
 	import type { Column } from '$lib/table/types';
 
 	import { filter } from '$lib/table/stores/filter';
-	import { ColorMode, FillMode } from '$lib/types';
+	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
@@ -31,7 +31,7 @@
 
 <Menu>
 	<div slot="toggle" class="cursor-pointer">
-		<Chip fill={FillMode.Fill} color={ColorMode.Primary}>
+		<Chip fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY}>
 			<span class="font-semibold">{column.header}</span>
 
 			{#if value}

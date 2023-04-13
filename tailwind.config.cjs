@@ -5,5 +5,5 @@ module.exports = {
 	theme: {
 		extend: {}
 	},
-	plugins: [require('./src/lib/tailwind.plugin.cjs')]
+	plugins: [require('./src/lib/tailwind/tailwind.plugin.cjs')]
 };

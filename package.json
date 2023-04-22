@@ -1,6 +1,6 @@
 {
 	"name": "@rpf3/spek",
-	"version": "0.7.2",
+	"version": "0.7.3",
 	"description": "An opinionated Svelte component library.",
 	"author": {
 		"name": "Richard P. Field III",
@@ -55,6 +55,7 @@
 		"tailwindcss": "^3.0",
 		"luxon": "^3.0"
 	},
+	"types": "index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -68,5 +69,12 @@
 		"./dist/**/*.d.ts",
 		"./src/lib/tailwind/*"
 	],
-	"svelte": "./dist/index.js"
+	"svelte": "./dist/index.js",
+	"typesVersions": {
+		">4.0": {
+			"index": [
+				"./dist/index.d.ts"
+			]
+		}
+	}
 }

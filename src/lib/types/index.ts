@@ -13,3 +13,10 @@ export const FILL_MODE = {
 } as const;
 
 export type FillMode = ObjectValues<typeof FILL_MODE>;
+
+export const BUTTON_TYPE = {
+	BUTTON: 'Button',
+	SUBMIT: 'Submit'
+} as const;
+
+export type ButtonType = ObjectValues<typeof BUTTON_TYPE>;

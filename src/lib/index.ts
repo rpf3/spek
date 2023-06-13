@@ -1,6 +1,8 @@
 // Types
 
-export { COLOR_MODE, type ColorMode, FILL_MODE, type FillMode } from './types';
+export { COLOR_MODE, type ColorMode } from './types';
+export { FILL_MODE, type FillMode } from './types';
+export { BUTTON_TYPE, type ButtonType } from './types';
 
 // Table Component Types
 

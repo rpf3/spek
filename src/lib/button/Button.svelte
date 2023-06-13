@@ -1,9 +1,10 @@
 <script lang="ts">
-	import type { ColorMode, FillMode } from '$lib/types';
+	import type { ColorMode, FillMode, ButtonType } from '$lib/types';
 
-	import { COLOR_MODE, FILL_MODE } from '$lib/types';
+	import { COLOR_MODE, FILL_MODE, BUTTON_TYPE } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 
+	export let type: ButtonType = BUTTON_TYPE.BUTTON;
 	export let color: ColorMode;
 	export let fill: FillMode;
 	export let disabled = false;
@@ -17,7 +18,7 @@
 
 <button
 	{disabled}
-	type="button"
+	type={type === BUTTON_TYPE.SUBMIT ? 'submit' : 'button'}
 	on:click={dispatchEvent}
 	class="w-full rounded-md border px-4 py-2 focus:outline-none"
 	class:bg-transparent={fill === FILL_MODE.RING}

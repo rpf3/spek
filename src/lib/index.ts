@@ -32,3 +32,4 @@ export { default as Menu } from './menu/Menu.svelte';
 export { default as Paginator } from './paginator/Paginator.svelte';
 export { default as Table } from './table/Table.svelte';
 export { default as Textbox } from './textbox/Textbox.svelte';
+export { default as Datepicker } from './datepicker/Datepicker.svelte';

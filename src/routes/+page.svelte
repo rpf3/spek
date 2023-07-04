@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
 	import type { PageData } from './$types';
+	import type { SelectOption } from '$lib/types';
 
 	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
@@ -12,6 +13,7 @@
 	import Chip from '$lib/chip/Chip.svelte';
 	import Menu from '$lib/menu/Menu.svelte';
 	import Paginator from '$lib/paginator/Paginator.svelte';
+	import Combobox from '$lib/combobox/Combobox.svelte';
 
 	export let data: PageData;
 
@@ -48,6 +50,48 @@
 	let visible = false;
 
 	let paginatorCurrentPage = 1;
+
+	const comboboxOptions: SelectOption[] = [
+		{
+			value: 'bacon',
+			text: 'Bacon'
+		},
+		{
+			value: 'donut',
+			text: 'Donut'
+		},
+		{
+			value: 'pancake',
+			text: 'Pancake'
+		},
+		{
+			value: 'egg',
+			text: 'Egg'
+		},
+		{
+			value: 'sausage',
+			text: 'Sausage'
+		},
+		{
+			value: 'chocolate-milk',
+			text: 'Chocolate Milk'
+		},
+		{
+			value: 'bagel',
+			text: 'Bagel'
+		}
+	];
+
+	let filteredOptions = comboboxOptions;
+	let comboboxValues: SelectOption[] = [];
+
+	function filterComboboxOptions(e: CustomEvent) {
+		const searchText = e.detail.text.toLocaleLowerCase();
+
+		filteredOptions = comboboxOptions.filter((x) => {
+			return x.text.toLocaleLowerCase().includes(searchText);
+		});
+	}
 </script>
 
 <div class="flex flex-col gap-8">
@@ -114,6 +158,32 @@
 	</section>
 
 	<section>
+		<h1 class="text-2xl mb-4">Menu</h1>
+
+		<div class="flex">
+			<Menu>
+				<Button slot="toggle" fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>open</Button>
+
+				<div slot="content" class="w-32">
+					Bacon ipsum dolor amet lorem bresaola sunt culpa in tri-tip.
+				</div>
+			</Menu>
+		</div>
+	</section>
+
+	<section>
+		<h1 class="text-2xl mb-4">Combobox</h1>
+
+		<div class="w-1/4">
+			<Combobox
+				bind:selected={comboboxValues}
+				options={filteredOptions}
+				on:search={filterComboboxOptions}
+			/>
+		</div>
+	</section>
+
+	<section>
 		<h1 class="text-2xl mb-4">Dialog</h1>
 
 		<div class="w-36">
@@ -158,20 +228,6 @@
 			<Chip fill={FILL_MODE.FILL} color={COLOR_MODE.ACCENT}>spek</Chip>
 
 			<Chip fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>spek</Chip>
-		</div>
-	</section>
-
-	<section>
-		<h1 class="text-2xl mb-4">Menu</h1>
-
-		<div class="flex">
-			<Menu>
-				<Button slot="toggle" fill={FILL_MODE.RING} color={COLOR_MODE.ACCENT}>open</Button>
-
-				<div slot="content" class="w-32">
-					Bacon ipsum dolor amet lorem bresaola sunt culpa in tri-tip.
-				</div>
-			</Menu>
 		</div>
 	</section>
 </div>

@@ -20,3 +20,8 @@ export const BUTTON_TYPE = {
 } as const;
 
 export type ButtonType = ObjectValues<typeof BUTTON_TYPE>;
+
+export type SelectOption = {
+	value: string;
+	text: string;
+};

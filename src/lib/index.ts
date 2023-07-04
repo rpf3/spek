@@ -3,6 +3,7 @@
 export { COLOR_MODE, type ColorMode } from './types';
 export { FILL_MODE, type FillMode } from './types';
 export { BUTTON_TYPE, type ButtonType } from './types';
+export type { SelectOption } from './types';
 
 // Table Component Types
 
@@ -33,3 +34,4 @@ export { default as Paginator } from './paginator/Paginator.svelte';
 export { default as Table } from './table/Table.svelte';
 export { default as Textbox } from './textbox/Textbox.svelte';
 export { default as Datepicker } from './datepicker/Datepicker.svelte';
+export { default as Combobox } from './combobox/Combobox.svelte';

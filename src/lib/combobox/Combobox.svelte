@@ -75,7 +75,7 @@
 		/>
 
 		<ul
-			class="absolute bg-spek-facade-50 dark:bg-spek-facade-500 w-full mt-2 px-2 py-1 flex-col gap-2 rounded max-h-36 overflow-auto"
+			class="absolute z-10 bg-spek-facade-50 dark:bg-spek-facade-500 w-full mt-2 px-2 py-1 flex-col gap-2 rounded max-h-36 overflow-auto"
 			class:hidden={isOpen === false}
 			class:flex={isOpen === true}
 		>

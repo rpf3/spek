@@ -36,6 +36,7 @@
 
 	function selectOption(option: SelectOption) {
 		selected = [...selected, option];
+		searchText = '';
 
 		hideOptions();
 	}

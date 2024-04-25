@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
 	import type { PageData } from './$types';
-	import type { SelectOption } from '$lib/types';
+	import type { SelectOption, ComboboxValue } from '$lib/combobox/types';
 
 	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
@@ -82,13 +82,31 @@
 		}
 	];
 
-	let filteredOptions = comboboxOptions;
-	let comboboxValues: SelectOption[] = [];
+	let monoComboboxOptions = comboboxOptions;
 
-	function filterComboboxOptions(e: CustomEvent) {
+	let monoComboboxValue: ComboboxValue = {
+		type: 'mono'
+	};
+
+	function filterMonoComboboxOptions(e: CustomEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
-		filteredOptions = comboboxOptions.filter((x) => {
+		monoComboboxOptions = comboboxOptions.filter((x) => {
+			return x.text.toLocaleLowerCase().includes(searchText);
+		});
+	}
+
+	let multiComboboxOptions = comboboxOptions;
+
+	let multiComboboxValue: ComboboxValue = {
+		type: 'multi',
+		selection: []
+	};
+
+	function filterMultiComboboxOptions(e: CustomEvent) {
+		const searchText = e.detail.text.toLocaleLowerCase();
+
+		multiComboboxOptions = comboboxOptions.filter((x) => {
 			return x.text.toLocaleLowerCase().includes(searchText);
 		});
 	}
@@ -174,11 +192,23 @@
 	<section>
 		<h1 class="text-2xl mb-4">Combobox</h1>
 
+		<h2 class="text-xl my-4">Single</h2>
+
 		<div class="w-1/4">
 			<Combobox
-				bind:selected={comboboxValues}
-				options={filteredOptions}
-				on:search={filterComboboxOptions}
+				bind:value={monoComboboxValue}
+				options={monoComboboxOptions}
+				on:search={filterMonoComboboxOptions}
+			/>
+		</div>
+
+		<h2 class="text-xl my-4">Multi</h2>
+
+		<div class="w-1/4">
+			<Combobox
+				bind:value={multiComboboxValue}
+				options={multiComboboxOptions}
+				on:search={filterMultiComboboxOptions}
 			/>
 		</div>
 	</section>

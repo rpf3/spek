@@ -82,18 +82,30 @@
 		}
 	];
 
+	function filterComboboxOptions(searchText: string) {
+		const filteredOptions = comboboxOptions.filter((x) => {
+			return x.text.toLocaleLowerCase().includes(searchText);
+		});
+
+		return filteredOptions;
+	}
+
 	let monoComboboxOptions = comboboxOptions;
 
 	let monoComboboxValue: ComboboxValue = {
 		type: 'mono'
 	};
 
-	function filterMonoComboboxOptions(e: CustomEvent) {
+	function handleMonoComboboxSearch(e: CustomEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
-		monoComboboxOptions = comboboxOptions.filter((x) => {
-			return x.text.toLocaleLowerCase().includes(searchText);
-		});
+		monoComboboxOptions = filterComboboxOptions(searchText);
+	}
+
+	function handleMonoComboboxSelect(e: CustomEvent) {
+		const searchText = '';
+
+		monoComboboxOptions = filterComboboxOptions(searchText);
 	}
 
 	let multiComboboxOptions = comboboxOptions;
@@ -103,12 +115,16 @@
 		selection: []
 	};
 
-	function filterMultiComboboxOptions(e: CustomEvent) {
+	function handleMultiComboboxSearch(e: CustomEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
-		multiComboboxOptions = comboboxOptions.filter((x) => {
-			return x.text.toLocaleLowerCase().includes(searchText);
-		});
+		multiComboboxOptions = filterComboboxOptions(searchText);
+	}
+
+	function handleMultiComboboxSelect(e: CustomEvent) {
+		const searchText = '';
+
+		multiComboboxOptions = filterComboboxOptions(searchText);
 	}
 </script>
 
@@ -198,7 +214,8 @@
 			<Combobox
 				bind:value={monoComboboxValue}
 				options={monoComboboxOptions}
-				on:search={filterMonoComboboxOptions}
+				on:search={handleMonoComboboxSearch}
+				on:select={handleMonoComboboxSelect}
 			/>
 		</div>
 
@@ -208,7 +225,8 @@
 			<Combobox
 				bind:value={multiComboboxValue}
 				options={multiComboboxOptions}
-				on:search={filterMultiComboboxOptions}
+				on:search={handleMultiComboboxSearch}
+				on:select={handleMultiComboboxSelect}
 			/>
 		</div>
 	</section>

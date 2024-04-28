@@ -9,9 +9,9 @@
 </script>
 
 {#if value.type === 'multi'}
-	<MultiValueCombobox bind:value {options} on:search />
+	<MultiValueCombobox bind:value {options} on:search on:select />
 {/if}
 
 {#if value.type === 'mono'}
-	<MonoValueCombobox bind:value {options} on:search />
+	<MonoValueCombobox bind:value {options} on:search on:select />
 {/if}

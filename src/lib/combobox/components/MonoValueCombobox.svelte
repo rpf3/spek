@@ -31,6 +31,10 @@
 		searchText = option.text;
 
 		hideOptions();
+
+		dispatch('select', {
+			option: option
+		});
 	}
 
 	function windowHandler(event: MouseEvent) {

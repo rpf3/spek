@@ -35,7 +35,7 @@
 			<span class="font-semibold">{column.header}</span>
 
 			{#if value}
-				<span class="max-w-[8rem] whitespace-nowrap overflow-hidden text-ellipsis">{value}</span>
+				<span class="max-w-[8rem] overflow-hidden text-ellipsis whitespace-nowrap">{value}</span>
 			{/if}
 
 			<Down />
@@ -52,12 +52,12 @@
 				type="text"
 				bind:value
 				on:change={updateFilter}
-				class="text-sm bg-spek-facade-50 dark:bg-spek-facade-500 border dark:border-transparent rounded w-36 p-1 pr-6 focus:outline-spek-primary-400 outline-none outline-offset-0"
+				class="w-36 rounded border bg-spek-facade-50 p-1 pr-6 text-sm outline-none outline-offset-0 focus:outline-spek-primary-400 dark:border-transparent dark:bg-spek-facade-500"
 			/>
 
 			<button
 				type="button"
-				class="absolute right-0 flex items-center inset-y-0 pr-1 text-spek-facade-400 dark:text-inherit"
+				class="absolute inset-y-0 right-0 flex items-center pr-1 text-spek-facade-400 dark:text-inherit"
 				on:click={clearFilter}
 			>
 				<XCircle />

@@ -14,7 +14,7 @@
 {:else}
 	{@const cellValue = utils.getCellValue(row, column.key)}
 
-	<div class="overflow-hidden whitespace-nowrap text-ellipsis">
+	<div class="overflow-hidden text-ellipsis whitespace-nowrap">
 		{#if cellValue instanceof Date}
 			{DateTime.fromJSDate(cellValue).toLocaleString()}
 		{:else}

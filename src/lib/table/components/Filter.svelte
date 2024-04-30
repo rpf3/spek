@@ -43,7 +43,7 @@
 </script>
 
 {#if $filter.filters.length > 0}
-	<div class="inline mr-3">
+	<div class="mr-3 inline">
 		<div class="flex gap-3">
 			{#each $filter.filters as filter (filter.key)}
 				<FilterChip column={getColumn(filter.key)} />
@@ -62,7 +62,7 @@
 			{#if availableColumns.length > 0}
 				<ul>
 					{#each availableColumns as column}
-						<li class="px-3 my-1 cursor-pointer" on:click={() => selectFilter(column)}>
+						<li class="my-1 cursor-pointer px-3" on:click={() => selectFilter(column)}>
 							{column.header}
 						</li>
 					{/each}

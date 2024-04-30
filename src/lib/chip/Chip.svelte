@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="flex gap-1 border items-center rounded-xl text-sm px-3 py-1"
+	class="flex items-center gap-1 rounded-xl border px-3 py-1 text-sm"
 	class:bg-transparent={fill === FILL_MODE.RING}
 	class:bg-spek-primary-600={fill === FILL_MODE.FILL && color === COLOR_MODE.PRIMARY}
 	class:bg-spek-accent-600={fill === FILL_MODE.FILL && color === COLOR_MODE.ACCENT}

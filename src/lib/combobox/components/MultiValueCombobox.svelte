@@ -75,18 +75,18 @@
 			bind:value={searchText}
 			on:input={searchHandler}
 			on:focus={showOptions}
-			class="text-sm bg-spek-facade-50 dark:bg-spek-facade-500 border dark:border-transparent rounded w-full p-1 focus:outline-spek-primary-400 outline-none outline-offset-0"
+			class="w-full rounded border bg-spek-facade-50 p-1 text-sm outline-none outline-offset-0 focus:outline-spek-primary-400 dark:border-transparent dark:bg-spek-facade-500"
 		/>
 
 		<ul
-			class="absolute z-10 bg-spek-facade-50 dark:bg-spek-facade-500 w-full mt-2 px-2 py-1 flex-col gap-2 rounded max-h-36 overflow-auto"
+			class="absolute z-10 mt-2 max-h-36 w-full flex-col gap-2 overflow-auto rounded bg-spek-facade-50 px-2 py-1 dark:bg-spek-facade-500"
 			class:hidden={isOpen === false}
 			class:flex={isOpen === true}
 		>
 			{#if availableOptions.length > 0}
 				{#each availableOptions as option}
 					<li
-						class="cursor-pointer hover:dark:bg-spek-facade-600 rounded px-2 py-1"
+						class="cursor-pointer rounded px-2 py-1 hover:dark:bg-spek-facade-600"
 						on:click={() => selectOption(option)}
 					>
 						{option.text}

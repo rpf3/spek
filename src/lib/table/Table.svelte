@@ -41,7 +41,7 @@
 	}
 </script>
 
-<div class="flex justify-end items-center mb-3">
+<div class="mb-3 flex items-center justify-end">
 	<Filter {columns} />
 </div>
 
@@ -66,7 +66,7 @@
 </div>
 
 {#if mergedConfig.pagination.enabled}
-	<div class="flex justify-center mt-6">
+	<div class="mt-6 flex justify-center">
 		<Paginator
 			count={Math.ceil($repository.total / $page.take)}
 			current={$page.number}

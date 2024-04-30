@@ -130,15 +130,15 @@
 
 <div class="flex flex-col gap-8">
 	<section>
-		<h1 class="text-2xl mb-4">Data Table</h1>
+		<h1 class="mb-4 text-2xl">Data Table</h1>
 
 		<Table {columns} data={data.data} />
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Button</h1>
+		<h1 class="mb-4 text-2xl">Button</h1>
 
-		<h2 class="text-xl my-4">Enabled</h2>
+		<h2 class="my-4 text-xl">Enabled</h2>
 
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
@@ -158,7 +158,7 @@
 			</div>
 		</div>
 
-		<h2 class="text-xl my-4">Disabled</h2>
+		<h2 class="my-4 text-xl">Disabled</h2>
 
 		<div class="flex flex-row gap-4">
 			<div class="w-36">
@@ -180,7 +180,7 @@
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Paginator</h1>
+		<h1 class="mb-4 text-2xl">Paginator</h1>
 
 		<Paginator
 			count={20}
@@ -192,7 +192,7 @@
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Menu</h1>
+		<h1 class="mb-4 text-2xl">Menu</h1>
 
 		<div class="flex">
 			<Menu>
@@ -206,9 +206,9 @@
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Combobox</h1>
+		<h1 class="mb-4 text-2xl">Combobox</h1>
 
-		<h2 class="text-xl my-4">Single</h2>
+		<h2 class="my-4 text-xl">Single</h2>
 
 		<div class="w-1/4">
 			<Combobox
@@ -219,7 +219,7 @@
 			/>
 		</div>
 
-		<h2 class="text-xl my-4">Multi</h2>
+		<h2 class="my-4 text-xl">Multi</h2>
 
 		<div class="w-1/4">
 			<Combobox
@@ -232,7 +232,7 @@
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Dialog</h1>
+		<h1 class="mb-4 text-2xl">Dialog</h1>
 
 		<div class="w-36">
 			<Button fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY} on:click={() => (visible = true)}
@@ -266,7 +266,7 @@
 	</section>
 
 	<section>
-		<h1 class="text-2xl mb-4">Chip</h1>
+		<h1 class="mb-4 text-2xl">Chip</h1>
 
 		<div class="flex flex-row gap-4">
 			<Chip fill={FILL_MODE.FILL} color={COLOR_MODE.PRIMARY}>spek</Chip>

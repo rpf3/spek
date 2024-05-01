@@ -12,10 +12,18 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Create bot access token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.RPF3_BOT_APP_ID }}
+          private-key: ${{ secrets.RPF3_BOT_PRIVATE_KEY }}
+
       - name: Checkout the repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0

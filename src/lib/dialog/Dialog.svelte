@@ -16,7 +16,7 @@
 	<div class="fixed inset-0 z-10">
 		<div class="flex min-h-full items-center justify-center">
 			<div
-				class="relative w-full max-w-lg transform overflow-hidden rounded-lg bg-spek-facade-50 shadow-xl transition-all dark:bg-spek-facade-700"
+				class="relative w-full max-w-lg transform rounded-lg bg-spek-facade-50 shadow-xl transition-all dark:bg-spek-facade-700"
 			>
 				<div class="flex flex-col bg-spek-facade-50 dark:bg-spek-facade-700">
 					<div class="flex flex-row border-b p-3">

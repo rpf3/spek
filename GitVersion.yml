@@ -1,0 +1,4 @@
+mode: Mainline
+major-version-bump-message: '\+semver:\s?(breaking|major)'
+minor-version-bump-message: '^(feat|revert)'
+patch-version-bump-message: '^(fix|docs|style|ref|perf|test|build|ci|chore)'

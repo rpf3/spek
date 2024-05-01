@@ -6,6 +6,9 @@
 		"name": "Richard P. Field III",
 		"url": "https://rpf3.io"
 	},
+	"repository": {
+		"url": "https://github.com/rpf3/spek"
+	},
 	"keywords": [
 		"svelte",
 		"tailwind",

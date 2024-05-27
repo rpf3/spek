@@ -14,3 +14,15 @@ export type MultiComboboxValue = {
 };
 
 export type ComboboxValue = MonoComboboxValue | MultiComboboxValue;
+
+export type ComboboxChangePayload = {
+	value: ComboboxValue;
+};
+
+export type ComboboxChangeEvent = CustomEvent<ComboboxChangePayload>;
+
+export type ComboboxSearchPayload = {
+	text: string;
+};
+
+export type ComboboxSearchEvent = CustomEvent<ComboboxSearchPayload>;

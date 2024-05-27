@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { SelectOption, MultiComboboxValue } from '$lib/combobox/types';
+	import type { ComboboxSearchPayload } from '$lib/combobox/types';
+	import type { ComboboxChangePayload } from '$lib/combobox/types';
 
 	import { createEventDispatcher } from 'svelte';
 	import { COLOR_MODE, FILL_MODE } from '$lib/types';
@@ -10,7 +12,10 @@
 	export let options: SelectOption[] = [];
 	export let value: MultiComboboxValue;
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{
+		search: ComboboxSearchPayload;
+		change: ComboboxChangePayload;
+	}>();
 
 	let container: HTMLElement;
 	let searchText: string;

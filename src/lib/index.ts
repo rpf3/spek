@@ -4,6 +4,7 @@ export { COLOR_MODE, type ColorMode } from './types';
 export { FILL_MODE, type FillMode } from './types';
 export { BUTTON_TYPE, type ButtonType } from './types';
 export type { SelectOption, ComboboxValue } from './combobox/types';
+export type { ComboboxChangeEvent, ComboboxSearchEvent } from './combobox/types';
 
 // Table Component Types
 

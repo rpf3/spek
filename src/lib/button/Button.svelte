@@ -2,24 +2,17 @@
 	import type { ColorMode, FillMode, ButtonType } from '$lib/types';
 
 	import { COLOR_MODE, FILL_MODE, BUTTON_TYPE } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 
 	export let type: ButtonType = BUTTON_TYPE.BUTTON;
 	export let color: ColorMode;
 	export let fill: FillMode;
 	export let disabled = false;
-
-	const dispatch = createEventDispatcher();
-
-	function dispatchEvent(event: Event) {
-		dispatch(event.type);
-	}
 </script>
 
 <button
 	{disabled}
 	type={type === BUTTON_TYPE.SUBMIT ? 'submit' : 'button'}
-	on:click={dispatchEvent}
+	on:click
 	class="w-full rounded-md border px-4 py-2 focus:outline-none"
 	class:bg-transparent={fill === FILL_MODE.RING}
 	class:bg-spek-primary-600={fill === FILL_MODE.FILL && color === COLOR_MODE.PRIMARY}

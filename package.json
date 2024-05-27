@@ -1,6 +1,6 @@
 {
 	"name": "@rpf3/spek",
-	"version": "0.88.0",
+	"version": "0.90.2",
 	"description": "An opinionated Svelte component library.",
 	"author": {
 		"name": "Richard P. Field III",

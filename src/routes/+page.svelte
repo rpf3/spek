@@ -214,7 +214,7 @@
 
 		<div class="w-1/4">
 			<Combobox
-				bind:value={monoComboboxValue}
+				value={monoComboboxValue}
 				options={monoComboboxOptions}
 				on:search={handleMonoComboboxSearch}
 				on:change={handleMonoComboboxChange}
@@ -225,7 +225,7 @@
 
 		<div class="w-1/4">
 			<Combobox
-				bind:value={multiComboboxValue}
+				value={multiComboboxValue}
 				options={multiComboboxOptions}
 				on:search={handleMultiComboboxSearch}
 				on:change={handleMultiComboboxChange}

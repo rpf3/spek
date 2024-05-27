@@ -1,12 +1,17 @@
 <script lang="ts">
 	import type { SelectOption, MonoComboboxValue } from '$lib/combobox/types';
+	import type { ComboboxSearchPayload } from '$lib/combobox/types';
+	import type { ComboboxChangePayload } from '$lib/combobox/types';
 
 	import { createEventDispatcher } from 'svelte';
 
 	export let options: SelectOption[] = [];
 	export let value: MonoComboboxValue;
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{
+		search: ComboboxSearchPayload;
+		change: ComboboxChangePayload;
+	}>();
 
 	let container: HTMLElement;
 	let searchText: string;

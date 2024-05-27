@@ -2,6 +2,8 @@
 	import type { Column } from '$lib/table/types';
 	import type { PageData } from './$types';
 	import type { SelectOption, ComboboxValue } from '$lib/combobox/types';
+	import type { ComboboxSearchEvent } from '$lib/combobox/types';
+	import type { ComboboxChangeEvent } from '$lib/combobox/types';
 
 	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
@@ -96,13 +98,13 @@
 		type: 'mono'
 	};
 
-	function handleMonoComboboxSearch(e: CustomEvent) {
+	function handleMonoComboboxSearch(e: ComboboxSearchEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
 		monoComboboxOptions = filterComboboxOptions(searchText);
 	}
 
-	function handleMonoComboboxChange(e: CustomEvent) {
+	function handleMonoComboboxChange(e: ComboboxChangeEvent) {
 		const searchText = '';
 
 		monoComboboxOptions = filterComboboxOptions(searchText);
@@ -115,13 +117,13 @@
 		selection: []
 	};
 
-	function handleMultiComboboxSearch(e: CustomEvent) {
+	function handleMultiComboboxSearch(e: ComboboxSearchEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
 		multiComboboxOptions = filterComboboxOptions(searchText);
 	}
 
-	function handleMultiComboboxChange(e: CustomEvent) {
+	function handleMultiComboboxChange(e: ComboboxChangeEvent) {
 		const searchText = '';
 
 		multiComboboxOptions = filterComboboxOptions(searchText);

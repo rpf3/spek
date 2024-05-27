@@ -32,8 +32,8 @@
 
 		hideOptions();
 
-		dispatch('select', {
-			option: option
+		dispatch('change', {
+			value: value
 		});
 	}
 

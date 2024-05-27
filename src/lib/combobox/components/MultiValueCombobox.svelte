@@ -40,8 +40,8 @@
 
 		hideOptions();
 
-		dispatch('select', {
-			option: option
+		dispatch('change', {
+			value: value
 		});
 	}
 
@@ -59,6 +59,10 @@
 
 	function deselectOption(option: SelectOption) {
 		value.selection = value.selection.filter((s) => !optionComparator(s, option));
+
+		dispatch('change', {
+			value: value
+		});
 	}
 
 	$: availableOptions = options.filter((option) => {

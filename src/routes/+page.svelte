@@ -102,7 +102,7 @@
 		monoComboboxOptions = filterComboboxOptions(searchText);
 	}
 
-	function handleMonoComboboxSelect(e: CustomEvent) {
+	function handleMonoComboboxChange(e: CustomEvent) {
 		const searchText = '';
 
 		monoComboboxOptions = filterComboboxOptions(searchText);
@@ -121,7 +121,7 @@
 		multiComboboxOptions = filterComboboxOptions(searchText);
 	}
 
-	function handleMultiComboboxSelect(e: CustomEvent) {
+	function handleMultiComboboxChange(e: CustomEvent) {
 		const searchText = '';
 
 		multiComboboxOptions = filterComboboxOptions(searchText);
@@ -215,7 +215,7 @@
 				bind:value={monoComboboxValue}
 				options={monoComboboxOptions}
 				on:search={handleMonoComboboxSearch}
-				on:select={handleMonoComboboxSelect}
+				on:change={handleMonoComboboxChange}
 			/>
 		</div>
 
@@ -226,7 +226,7 @@
 				bind:value={multiComboboxValue}
 				options={multiComboboxOptions}
 				on:search={handleMultiComboboxSearch}
-				on:select={handleMultiComboboxSelect}
+				on:change={handleMultiComboboxChange}
 			/>
 		</div>
 	</section>

@@ -5,6 +5,7 @@ export { FILL_MODE, type FillMode } from './types';
 export { BUTTON_TYPE, type ButtonType } from './types';
 export type { SelectOption } from './combobox/types';
 export type { ComboboxChangeEvent, ComboboxSearchEvent } from './combobox/types';
+export type { ChipListChangeEvent } from './chiplist/types';
 
 // Table Component Types
 

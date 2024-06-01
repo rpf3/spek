@@ -3,20 +3,8 @@ export type SelectOption = {
 	text: string;
 };
 
-export type MonoComboboxValue = {
-	type: 'mono';
-	selection?: SelectOption | undefined;
-};
-
-export type MultiComboboxValue = {
-	type: 'multi';
-	selection: SelectOption[];
-};
-
-export type ComboboxValue = MonoComboboxValue | MultiComboboxValue;
-
 export type ComboboxChangePayload = {
-	value: ComboboxValue;
+	value: SelectOption;
 };
 
 export type ComboboxChangeEvent = CustomEvent<ComboboxChangePayload>;

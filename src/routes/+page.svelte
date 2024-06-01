@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Column } from '$lib/table/types';
 	import type { PageData } from './$types';
-	import type { SelectOption, ComboboxValue } from '$lib/combobox/types';
+	import type { SelectOption } from '$lib/combobox/types';
 	import type { ComboboxSearchEvent } from '$lib/combobox/types';
 	import type { ComboboxChangeEvent } from '$lib/combobox/types';
 
@@ -84,6 +84,8 @@
 		}
 	];
 
+	let filteredComboboxOptions = comboboxOptions;
+
 	function filterComboboxOptions(searchText: string) {
 		const filteredOptions = comboboxOptions.filter((x) => {
 			return x.text.toLocaleLowerCase().includes(searchText);
@@ -92,41 +94,16 @@
 		return filteredOptions;
 	}
 
-	let monoComboboxOptions = comboboxOptions;
-
-	let monoComboboxValue: ComboboxValue = {
-		type: 'mono'
-	};
-
-	function handleMonoComboboxSearch(e: ComboboxSearchEvent) {
+	function handleComboboxSearch(e: ComboboxSearchEvent) {
 		const searchText = e.detail.text.toLocaleLowerCase();
 
-		monoComboboxOptions = filterComboboxOptions(searchText);
+		filteredComboboxOptions = filterComboboxOptions(searchText);
 	}
 
-	function handleMonoComboboxChange(e: ComboboxChangeEvent) {
+	function handleComboboxChange(e: ComboboxChangeEvent) {
 		const searchText = '';
 
-		monoComboboxOptions = filterComboboxOptions(searchText);
-	}
-
-	let multiComboboxOptions = comboboxOptions;
-
-	let multiComboboxValue: ComboboxValue = {
-		type: 'multi',
-		selection: []
-	};
-
-	function handleMultiComboboxSearch(e: ComboboxSearchEvent) {
-		const searchText = e.detail.text.toLocaleLowerCase();
-
-		multiComboboxOptions = filterComboboxOptions(searchText);
-	}
-
-	function handleMultiComboboxChange(e: ComboboxChangeEvent) {
-		const searchText = '';
-
-		multiComboboxOptions = filterComboboxOptions(searchText);
+		filteredComboboxOptions = filterComboboxOptions(searchText);
 	}
 </script>
 
@@ -210,25 +187,11 @@
 	<section>
 		<h1 class="mb-4 text-2xl">Combobox</h1>
 
-		<h2 class="my-4 text-xl">Single</h2>
-
 		<div class="w-1/4">
 			<Combobox
-				value={monoComboboxValue}
-				options={monoComboboxOptions}
-				on:search={handleMonoComboboxSearch}
-				on:change={handleMonoComboboxChange}
-			/>
-		</div>
-
-		<h2 class="my-4 text-xl">Multi</h2>
-
-		<div class="w-1/4">
-			<Combobox
-				value={multiComboboxValue}
-				options={multiComboboxOptions}
-				on:search={handleMultiComboboxSearch}
-				on:change={handleMultiComboboxChange}
+				options={filteredComboboxOptions}
+				on:search={handleComboboxSearch}
+				on:change={handleComboboxChange}
 			/>
 		</div>
 	</section>

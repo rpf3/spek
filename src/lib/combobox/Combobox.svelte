@@ -13,8 +13,9 @@
 		change: ComboboxChangePayload;
 	}>();
 
+	$: searchText = value ? value.text : '';
+
 	let container: HTMLElement;
-	let searchText: string;
 	let isOpen = false;
 
 	function showOptions() {
@@ -38,7 +39,7 @@
 		hideOptions();
 
 		dispatch('change', {
-			value: value
+			value: option
 		});
 	}
 

@@ -37,3 +37,4 @@ export { default as Table } from './table/Table.svelte';
 export { default as Textbox } from './textbox/Textbox.svelte';
 export { default as Datepicker } from './datepicker/Datepicker.svelte';
 export { default as Combobox } from './combobox/Combobox.svelte';
+export { default as ChipList } from './chiplist/ChipList.svelte';

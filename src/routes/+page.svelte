@@ -4,6 +4,7 @@
 	import type { SelectOption } from '$lib/combobox/types';
 	import type { ComboboxSearchEvent } from '$lib/combobox/types';
 	import type { ComboboxChangeEvent } from '$lib/combobox/types';
+	import type { ChipListChangeEvent } from '$lib/chiplist/types';
 
 	import { COLOR_MODE, FILL_MODE } from '$lib/types';
 
@@ -16,6 +17,7 @@
 	import Menu from '$lib/menu/Menu.svelte';
 	import Paginator from '$lib/paginator/Paginator.svelte';
 	import Combobox from '$lib/combobox/Combobox.svelte';
+	import ChipList from '$lib/chiplist/ChipList.svelte';
 
 	export let data: PageData;
 
@@ -84,12 +86,24 @@
 		}
 	];
 
+	let comboboxValue: SelectOption | undefined = undefined;
+
 	let filteredComboboxOptions = comboboxOptions;
 
+	let selectedComboboxOptions: SelectOption[] = [];
+
 	function filterComboboxOptions(searchText: string) {
-		const filteredOptions = comboboxOptions.filter((x) => {
-			return x.text.toLocaleLowerCase().includes(searchText);
+		const selectedValues = selectedComboboxOptions.map((x) => {
+			return x.value;
 		});
+
+		const filteredOptions = comboboxOptions
+			.filter((x) => {
+				return !selectedValues.includes(x.value);
+			})
+			.filter((x) => {
+				return x.text.toLocaleLowerCase().includes(searchText);
+			});
 
 		return filteredOptions;
 	}
@@ -101,9 +115,15 @@
 	}
 
 	function handleComboboxChange(e: ComboboxChangeEvent) {
-		const searchText = '';
+		selectedComboboxOptions = [...selectedComboboxOptions, e.detail.value];
 
-		filteredComboboxOptions = filterComboboxOptions(searchText);
+		filteredComboboxOptions = filterComboboxOptions('');
+
+		comboboxValue = undefined;
+	}
+
+	function handleChipListChange(e: ChipListChangeEvent) {
+		selectedComboboxOptions = [...e.detail.value];
 	}
 </script>
 
@@ -187,12 +207,15 @@
 	<section>
 		<h1 class="mb-4 text-2xl">Combobox</h1>
 
-		<div class="w-1/4">
+		<div class="flex w-1/4 flex-col gap-2">
 			<Combobox
+				bind:value={comboboxValue}
 				options={filteredComboboxOptions}
 				on:search={handleComboboxSearch}
 				on:change={handleComboboxChange}
 			/>
+
+			<ChipList value={selectedComboboxOptions} on:change={handleChipListChange} />
 		</div>
 	</section>
 
